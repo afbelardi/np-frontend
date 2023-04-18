@@ -1,0 +1,15 @@
+#navbar_custom {
+    display: flex;
+    align-items: center;
+    padding: var(--navbar-padding, 0.5rem);
+    margin-top: 10px;
+    min-height: 4rem/* 64px */;
+    width: 95%;
+    min-width: 400px;
+    border-radius: 8px;
+}
+
+:where(#navbar_custom > *) {
+    display: flex;
+    align-items: center;
+}
