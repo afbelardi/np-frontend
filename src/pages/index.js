@@ -17,6 +17,8 @@ export default function Home() {
     <>
     <Head>
       <title>NP Finder</title>
+      <meta name="description" content="Discover National Park sites to visit" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
       <Navbar />
       <Hero />

@@ -12,3 +12,16 @@
     display: flex;
     align-items: center;
 }
+
+@keyframes show {
+    0% {
+      opacity: 0
+  }
+    100%  {
+      opacity: 1
+  }
+}
+
+#intro {
+  animation: show 2s ease-in;
+}
