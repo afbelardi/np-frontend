@@ -17,6 +17,24 @@ module.exports = {
       },
       backgroundImage: {
         'hero-image': "url('/forwebsite.jpg')"
+      },
+      height: {
+        '500': '500px'
+      },
+      colors: {
+        'boston-blue': {
+          '50': '#f3f8fc',
+          '100': '#e5f0f9',
+          '200': '#c6e1f1',
+          '300': '#93c8e6',
+          '400': '#5aacd6',
+          '500': '#3491c2',
+          '600': '#2475a5',
+          '700': '#1f5d85',
+          '800': '#1d4f6f',
+          '900': '#1d435d',
+          '950': '#132c3e',
+      }
       }
     },
   },

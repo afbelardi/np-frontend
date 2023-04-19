@@ -14,10 +14,9 @@ export default function Home() {
 
   return (
     <>
-    {/* <div className='object-contain bg-hero-image h-2/4'> */}
       <Navbar />
       <Hero />
-    {/* </div> */}
+
     </>
   )
 }
