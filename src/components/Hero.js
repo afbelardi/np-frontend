@@ -15,7 +15,7 @@ export default function Hero () {
                     </li>
                     <li className='flex items-center gap-2 w-72'>
                       <TbCheckupList className='w-8 h-8'/>
-                      <p className='text-sm font-medium'>Get specific information about each location</p>
+                      <p className='text-sm font-medium'>Get information about each location</p>
                     </li>
                     <li className='flex items-center gap-2 w-72'>
                       <TbCheckupList className='w-7 h-7'/>
@@ -26,7 +26,7 @@ export default function Hero () {
                       <p className='text-sm font-medium'>Plan your next trip</p>
                     </li>
                 </ul>
-                <img src="/outdoor_adventure.svg" />
+                <img src="/outdoor_adventure.svg" className=' w-80 h-80' />
             </div>
         </>
     )
