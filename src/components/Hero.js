@@ -4,7 +4,7 @@ import styles from '../styles/hero.module.css';
 export default function Hero () {
     return (
         <>
-            <div className="flex flex-col items-center justify-center w-full mt-16 overflow-x-hidden">
+            <div className="flex flex-col items-center justify-center w-full overflow-x-hidden mt-14">
                 <h1 className="p-4 text-5xl font-bold text-center text-white font-monserrat">Plan your next 
                 <p className={`${styles.intro} inline-block p-1 mx-2 text-transparent bg-gradient-to-r from-boston-blue-400 via-boston-blue-500 to-boston-blue-600 bg-clip-text`}>outdoor</p>
                 
@@ -29,6 +29,10 @@ export default function Hero () {
                     </li>
                 </ul>
                 <img src="/outdoor_adventure.svg" className={`${styles.intro} w-80 h-80`} />
+                <section className="flex flex-col items-center mb-4">
+                    <h1 className="text-xl font-semibold text-white font-monserrat">Created with the official NPS API</h1>
+                    <img src='/Arrowhead.png' className="w-16 mt-4 h-18" />
+                </section>
             </div>
         </>
     )
