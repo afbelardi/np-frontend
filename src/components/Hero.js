@@ -1,5 +1,6 @@
 import { TbCheckupList } from 'react-icons/tb';
 import styles from '../styles/hero.module.css';
+import Link from 'next/link';
 
 export default function Hero () {
     return (
@@ -9,7 +10,9 @@ export default function Hero () {
                 <p className={`${styles.intro} inline-block p-1 mx-2 text-transparent bg-gradient-to-r from-boston-blue-400 via-boston-blue-500 to-boston-blue-600 bg-clip-text`}>outdoor</p>
                 
                 adventure</h1>
-                <button className="mt-3 btn glass">Get Started</button>
+                <Link href="/search">
+                    <button className="mt-3 btn glass">Get Started</button>
+                </Link>
                 <ul className="flex flex-col items-center w-full gap-2 mt-10">
                     <li className='flex items-center gap-2 w-72'>
                       <TbCheckupList className={`${styles.clipboard} w-7 h-7 `}/>
