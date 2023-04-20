@@ -4,11 +4,12 @@ import styles from '../styles/hero.module.css';
 export default function Hero () {
     return (
         <>
-            <div className="flex flex-col items-center justify-center w-full mt-16">
+            <div className="flex flex-col items-center justify-center w-full mt-16 overflow-x-hidden">
                 <h1 className="p-4 text-5xl font-bold text-center text-white font-monserrat">Plan your next 
-                <p  className={`${styles.intro} inline-block ml-3 mr-3 text-transparent bg-gradient-to-r from-boston-blue-400 via-boston-blue-500 to-boston-blue-600 bg-clip-text`}>outdoor</p>
+                <p className={`${styles.intro} inline-block p-1 mx-2 text-transparent bg-gradient-to-r from-boston-blue-400 via-boston-blue-500 to-boston-blue-600 bg-clip-text`}>outdoor</p>
                 
                 adventure</h1>
+                <button className="mt-3 btn glass">Get Started</button>
                 <ul className="flex flex-col items-center w-full gap-2 mt-10">
                     <li className='flex items-center gap-2 w-72'>
                       <TbCheckupList className={`${styles.clipboard} w-7 h-7 `}/>

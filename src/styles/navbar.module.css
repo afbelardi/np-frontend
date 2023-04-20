@@ -4,7 +4,7 @@
     padding: var(--navbar-padding, 0.5rem);
     min-height: 4rem/* 64px */;
     width: 100%;
-    min-width: 400px;
+    min-width: 300px;
     position: sticky;
 }
 
@@ -13,15 +13,3 @@
     align-items: center;
 }
 
-@keyframes show {
-    0% {
-      opacity: 0
-  }
-    100%  {
-      opacity: 1
-  }
-}
-
-#intro {
-  animation: show 2s ease-in;
-}
