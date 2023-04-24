@@ -5,7 +5,7 @@ import Head from "next/head";
 
 export default function Search () {
 
-    const [exampleParks, setExampleParks] = useState([]);
+    const [exampleParks, setExampleParks] = useState({});
     const [loading, setLoading] = useState(true);
 
     const Skeleton = () => {
@@ -22,7 +22,7 @@ export default function Search () {
               fill="currentColor"
               viewBox="0 0 640 512"
             >
-              <pNameath d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z" />
+              <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z" />
             </svg>
           </div>
           <div className="h-2.5  rounded-full bg-slate-500 w-48 mb-4"></div>
@@ -53,20 +53,16 @@ export default function Search () {
       );
     };
 
-    const Cards = () => {
+    const Card = ({ fullName }) => {
       return (
-        <div className="max-w-sm bg-gray-800 border-gray-700 rounded-lg shadow">
-          <a href="#">
-            <img
-              className="rounded-t-lg"
-              src="/docs/images/blog/image-1.jpg"
-              alt=""
-            />
-          </a>
+        <div className="max-w-sm mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
+          {/* <a href="#">
+            <img src={}
+          </a> */}
           <div className="p-5">
             <a href="#">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                Noteworthy technology acquisitions 2021
+                {fullName}
               </h5>
             </a>
             <p className="mb-3 font-normal text-gray-400">
@@ -75,7 +71,7 @@ export default function Search () {
             </p>
             <a
               href="#"
-              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none  bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:outline-none hover:bg-blue-700 focus:ring-blue-800"
             >
               Read more
               <svg
@@ -97,19 +93,31 @@ export default function Search () {
       );
     };
 
+   
+
     useEffect(() => {
     (async () => {
         try {
             const response1 = await axios.get('http://localhost:8000/api/nationalpark/apikey/WA');
             const data1 = response1.data.data[9];
 
-            console.log(data1);
+            const response2 = await axios.get('http://localhost:8000/api/nationalpark/apikey/CA');
+            const data2 = response2.data.data[32];
+
+            const results = {
+                data1: data1,
+                data2: data2
+            }
+
+            setExampleParks(results);
+            
             setLoading(false);
         } catch(error) {
             console.error(error)
         }
     })();
     }, [])
+
 
 
     return (
@@ -132,7 +140,12 @@ export default function Search () {
                     <Skeleton />
                 </>
                 :
-                <Cards />
+               Object.keys(exampleParks).map(index => (
+                <Card 
+                key={index}
+                fullName={exampleParks[index].fullName}
+                />
+               ))
             }
 
             </div>
