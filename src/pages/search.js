@@ -57,7 +57,7 @@ export default function Search () {
       return (
         <div className="max-w-sm mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
           <a href="#">
-            <img src={image} />
+            <img className="rounded-t-lg" src={image} />
           </a>
           <div className="p-5">
             <a href="#">
@@ -127,7 +127,8 @@ export default function Search () {
             <link rel="icon" href="/mountain.png" />
         </Head>
             <Navbar />
-            <div className="flex flex-col items-center justify-center h-56 mt-16">
+            <div className="flex flex-col items-center justify-center h-56 mt-10">
+                <h1>Search by state</h1>
                 <input className="w-1/2 input-md"></input>
             </div>
             <div className="flex flex-col items-center">
