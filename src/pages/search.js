@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Head from "next/head";
 import styles from '../styles/search.module.css';
@@ -8,6 +8,8 @@ export default function Search () {
 
     const [exampleParks, setExampleParks] = useState({});
     const [loading, setLoading] = useState(true);
+    const inputRef = useRef(null);
+    const [parks, setParks] = useState([]);
 
     const Skeleton = () => {
       return (
@@ -115,7 +117,17 @@ export default function Search () {
             console.error(error)
         }
     })();
-    }, [])
+    }, []);
+
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`)
+            const data = response.data
+            console.log(data);
+        } catch(error) {
+            console.error(error)
+        }
+    }
 
 
 
@@ -128,9 +140,10 @@ export default function Search () {
             <link rel="icon" href="/mountain.png" />
         </Head>
             <Navbar />
-            <div className="flex flex-col items-center h-40 mt-16 text-center">
+            <div className="flex flex-col items-center h-56 mt-16 text-center">
                 <h1 className="mb-4 text-2xl font-bold font-monserrat">Search by state abbreviation</h1>
-                <input placeholder="FL" className={`${styles.input} bg-white`}></input>
+                <input placeholder="FL" ref={inputRef} className={`${styles.input} bg-white`}></input>
+                <button onClick={handleSubmit} className="mt-3 btn glass">Submit</button>
             </div>
             <div className="flex flex-col items-center">
             {
