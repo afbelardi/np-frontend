@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Head from "next/head";
+import styles from '../styles/search.module.css';
 
 export default function Search () {
 
@@ -55,7 +56,7 @@ export default function Search () {
 
     const Card = ({ fullName, image, description }) => {
       return (
-        <div className="max-w-sm mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
+        <div className="max-w-lg mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
           <a href="#">
             <img className="rounded-t-lg" src={image} />
           </a>
@@ -127,9 +128,9 @@ export default function Search () {
             <link rel="icon" href="/mountain.png" />
         </Head>
             <Navbar />
-            <div className="flex flex-col items-center justify-center h-56 mt-10">
-                <h1>Search by state</h1>
-                <input className="w-1/2 input-md"></input>
+            <div className="flex flex-col items-center h-40 mt-16 text-center">
+                <h1 className="mb-4 text-2xl font-bold font-monserrat">Search by state abbreviation</h1>
+                <input placeholder="FL" className={`${styles.input} bg-white`}></input>
             </div>
             <div className="flex flex-col items-center">
             {

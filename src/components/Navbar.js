@@ -38,7 +38,7 @@ export default function Navbar () {
         </a>
       </li>
       <li><a>Settings</a></li>
-      <li><a>Logout</a></li>
+      <li><a>Log In</a></li>
     </ul>
       }
       

@@ -1,0 +1,19 @@
+
+
+.input {
+    border-radius: 4px;
+    height: 30px;
+    padding: 5px;
+    color: black;
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input:focus {
+    border: 2px solid rgb(3 105 161);
+}
+
+.input::placeholder {
+    font-weight: bold;
+}
