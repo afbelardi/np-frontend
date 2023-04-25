@@ -17,3 +17,8 @@
 .input::placeholder {
     font-weight: bold;
 }
+
+
+.park-image {
+    max-height: 200px;
+}

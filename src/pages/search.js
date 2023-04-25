@@ -6,10 +6,10 @@ import styles from '../styles/search.module.css';
 
 export default function Search () {
 
-    const [exampleParks, setExampleParks] = useState({});
+    const [parks, setParks] = useState([]);
     const [loading, setLoading] = useState(true);
     const inputRef = useRef(null);
-    const [parks, setParks] = useState([]);
+    // const [parks, setParks] = useState([]);
 
     const Skeleton = () => {
       return (
@@ -60,7 +60,7 @@ export default function Search () {
       return (
         <div className="max-w-lg mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
           <a href="#">
-            <img className="rounded-t-lg" src={image} />
+            <img className={`${styles.park-image} rounded-t-lg`} src={image} />
           </a>
           <div className="p-5">
             <a href="#">
@@ -111,7 +111,7 @@ export default function Search () {
                 data2: data2
             }
 
-            setExampleParks(results);
+            setParks(results);
             setLoading(false);
         } catch(error) {
             console.error(error)
@@ -120,10 +120,12 @@ export default function Search () {
     }, []);
 
     const handleSubmit = async () => {
+        setLoading(true)
         try {
             const response = await axios.get(`http://localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`)
             const data = response.data
-            console.log(data);
+            setParks(data.data);
+            setLoading(false)
         } catch(error) {
             console.error(error)
         }
@@ -153,12 +155,12 @@ export default function Search () {
                     <Skeleton />
                 </>
                 :
-               Object.keys(exampleParks).map(index => (
+               Object.keys(parks).map(index => (
                 <Card 
                 key={index}
-                fullName={exampleParks[index].fullName}
-                image={exampleParks[index].images[0].url}
-                description={exampleParks[index].description}
+                fullName={parks[index].fullName}
+                image={parks[index].images[0].url}
+                description={parks[index].description}
                 />
                ))
             }
