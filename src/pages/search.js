@@ -60,7 +60,7 @@ export default function Search () {
       return (
         <div className="max-w-lg mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
           <a href="#">
-            <img className={`${styles.park-image} rounded-t-lg`} src={image} />
+            <img className={`${styles.parkImage} rounded-t-lg`} src={image} />
           </a>
           <div className="p-5">
             <a href="#">

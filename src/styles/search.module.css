@@ -6,7 +6,7 @@
     padding: 5px 20px;
     color: black;
     font: inherit;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -19,6 +19,8 @@
 }
 
 
-.park-image {
-    max-height: 200px;
+.parkImage {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
 }
