@@ -58,7 +58,7 @@ export default function Search () {
 
     const Card = ({ fullName, image, description }) => {
       return (
-        <div className="max-w-lg mb-5 bg-gray-800 border-gray-700 rounded-lg shadow">
+        <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow">
           <a href="#">
             <img className={`${styles.parkImage} rounded-t-lg`} src={image} />
           </a>
