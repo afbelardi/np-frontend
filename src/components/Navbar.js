@@ -42,7 +42,12 @@ export default function Navbar () {
         <Link href='/login'>
             Log In
         </Link>
-        </li>
+      </li>
+      <li>
+        <Link href='/signup'>
+            Sign Up
+        </Link>
+      </li>
     </ul>
       }
       
