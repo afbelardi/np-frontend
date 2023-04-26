@@ -35,7 +35,9 @@ module.exports = {
           '800': '#1d4f6f',
           '900': '#1d435d',
           '950': '#132c3e',
-      }
+      },  
+      'light-purple': '#9aa2e6',
+      'dark-purple': '#7b81b8'
       }
     },
   },

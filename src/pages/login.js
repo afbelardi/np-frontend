@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar"
 import { useRef } from 'react';
 import axios from 'axios';
+import Link from "next/link";
+import Head from "next/head";
 
 
 export default function Login () {
@@ -24,6 +26,12 @@ const handleLogin = async (e) => {
 }
     return (
       <>
+        <Head>
+            <title>NP Finder</title>
+            <meta name="description" content="Discover National Park sites to visit" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/mountain.png" />
+        </Head>
         <Navbar />
         <div className="flex justify-center mt-40">
           <div className="w-full max-w-xs">
@@ -52,18 +60,18 @@ const handleLogin = async (e) => {
               </div>
               <div className="flex items-center justify-between">
                 <button
-                  className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                  className="px-4 py-2 font-bold text-white rounded bg-light-purple hover:bg-dark-purple focus:outline-none focus:shadow-outline"
                   onClick={handleLogin}
                   type="button"
                 >
                   Sign In
                 </button>
-                <a
+                <Link
                   className="inline-block text-sm font-bold text-blue-500 align-baseline hover:text-blue-800"
-                  href="#"
+                  href="/signup"
                 >
                   Need to Sign Up?
-                </a>
+                </Link>
               </div>
             </form>
           </div>
