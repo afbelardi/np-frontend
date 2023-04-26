@@ -38,7 +38,11 @@ export default function Navbar () {
         </a>
       </li>
       <li><a>Settings</a></li>
-      <li><a>Log In</a></li>
+      <li>
+        <Link href='/login'>
+            Log In
+        </Link>
+        </li>
     </ul>
       }
       
