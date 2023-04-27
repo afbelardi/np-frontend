@@ -19,7 +19,7 @@ const handleLogin = async (e) => {
             password: password.current.value
         })
         const data = await response.data;
-        console.log(data)
+        localStorage.setItem('token', data.token)
     } catch(error) {
         console.error(error)
     }

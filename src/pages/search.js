@@ -3,13 +3,17 @@ import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Head from "next/head";
 import styles from '../styles/search.module.css';
+import { useAuth } from '../../authContext';
+
 
 export default function Search () {
 
     const [parks, setParks] = useState([]);
     const [loading, setLoading] = useState(true);
     const inputRef = useRef(null);
-    // const [parks, setParks] = useState([]);
+    const { isLoggedIn } = useAuth();
+
+
 
     const Skeleton = () => {
       return (
