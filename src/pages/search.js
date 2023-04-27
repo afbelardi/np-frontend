@@ -1,17 +1,17 @@
 import Navbar from "../components/Navbar";
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import axios from 'axios';
 import Head from "next/head";
 import styles from '../styles/search.module.css';
-import { useAuth } from '../../authContext';
-
+import { useAuth, AuthContext } from '../../authContext';
+import { useRouter } from "next/router";
 
 export default function Search () {
-
+    const router = useRouter();
     const [parks, setParks] = useState([]);
     const [loading, setLoading] = useState(true);
     const inputRef = useRef(null);
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn } = useContext(AuthContext);
 
 
 
@@ -98,6 +98,12 @@ export default function Search () {
         </div>
       );
     };
+
+    useEffect(() => {
+        if (!isLoggedIn) {
+            router.push('/login')
+        }
+    }, [isLoggedIn, router])
 
    
 

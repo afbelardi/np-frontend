@@ -1,9 +1,11 @@
 import styles from '../styles/navbar.module.css';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../../authContext';
 
 export default function Navbar () {
 
+    const { isLoggedIn, logout } = useContext(AuthContext);
     const [showDropdown, setShowDropdown] = useState(false);
 
     const toggleDropdown = () => {
@@ -39,9 +41,12 @@ export default function Navbar () {
       </li>
       <li><a>Settings</a></li>
       <li>
-        <Link href='/login'>
+        {
+            isLoggedIn ? <button onClick={logout}>Log out</button> : <Link href='/login'>
             Log In
         </Link>
+        }
+        
       </li>
       <li>
         <Link href='/signup'>
