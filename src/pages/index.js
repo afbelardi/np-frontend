@@ -4,16 +4,12 @@ import ParkCard from '../components/ParkCard';
 import Hero from '../components/Hero';
 import { useState, useEffect, useRef} from 'react';
 import Head from 'next/head';
-import { test, test2 } from '../pages/test';
+
 
 
 export default function Home() {
 
   const [parks, setParks] = useState([]);
-
-  test();
-  test2();
-
 
   return (
     <>

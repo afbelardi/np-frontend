@@ -1,9 +1,9 @@
 import Navbar from "../components/Navbar"
-import { useRef } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Link from "next/link";
 import Head from "next/head";
-
+import { AuthContext } from "../../authContext";
 
 export default function Login () {
 
@@ -11,17 +11,19 @@ export default function Login () {
 const email = useRef(null);
 const password = useRef(null);
 
+const { setIsLoggedIn } = useContext(AuthContext)
+
 
 
 const handleLogin = async (e) => {
-    e.preventDefault();
     try {
         const response = await axios.post('http://localhost:8000/api/users/login', {
             email: email.current.value,
             password: password.current.value
         })
         const data = await response.data;
-        localStorage.setItem('token', data.token)
+        localStorage.setItem('token', data.token);
+        setIsLoggedIn(true)
     } catch(error) {
         console.error(error)
     }
