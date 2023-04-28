@@ -4,10 +4,11 @@ import axios from 'axios';
 import Link from "next/link";
 import Head from "next/head";
 import { AuthContext } from "../../authContext";
+import { useRouter } from "next/router";
 
 export default function Login () {
 
-
+const router = useRouter();
 const email = useRef(null);
 const password = useRef(null);
 
@@ -23,7 +24,8 @@ const handleLogin = async (e) => {
         })
         const data = await response.data;
         localStorage.setItem('token', data.token);
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
+        router.push('/search')
     } catch(error) {
         console.error(error)
     }

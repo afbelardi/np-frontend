@@ -153,7 +153,7 @@ export default function Search () {
         </Head>
             <Navbar />
             <div className="flex flex-col items-center h-56 mt-16 text-center">
-                <h1 className="mb-4 text-2xl font-bold font-monserrat">Search by state abbreviation</h1>
+                <h1 className="mb-4 text-2xl font-bold text-white font-monserrat">Search by state abbreviation</h1>
                 <input placeholder="FL" ref={inputRef} className={`${styles.input} bg-white`}></input>
                 <button onClick={handleSubmit} className="mt-3 btn glass">Submit</button>
             </div>
