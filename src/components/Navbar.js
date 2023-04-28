@@ -17,7 +17,7 @@ export default function Navbar () {
     <div id={styles.navbar_custom} className="bg-base-100">
   <div className="flex-1">
     <Link href='/'>
-        <button className="text-xl normal-case btn btn-ghost">National Park Finder</button>
+        <button className="text-xl text-white normal-case btn btn-ghost">National Park Finder</button>
     </Link>
   </div>
   <div className="flex-none gap-2">
@@ -32,24 +32,23 @@ export default function Navbar () {
         </div>
       </label>
       {showDropdown && 
-      <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="p-2 mt-3 shadow bg-navbar-blue menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
       <li>
-        <a className="justify-between">
+        <Link href='/profile' className="text-white">
           Profile
           <span className="badge">New</span>
-        </a>
+        </Link>
       </li>
-      <li><a>Settings</a></li>
       <li>
         {
-            isLoggedIn ? <button onClick={logout}>Log out</button> : <Link href='/login'>
+            isLoggedIn ? <button className="text-white" onClick={logout}>Log out</button> : <Link className="text-white" href='/login'>
             Log In
         </Link>
         }
         
       </li>
       <li>
-        <Link href='/signup'>
+        <Link className="text-white" href='/signup'>
             Sign Up
         </Link>
       </li>

@@ -37,7 +37,8 @@ module.exports = {
           '950': '#132c3e',
       },  
       'light-purple': '#9aa2e6',
-      'dark-purple': '#7b81b8'
+      'dark-purple': '#7b81b8',
+      'navbar-blue': '#2b374f'
       }
     },
   },
@@ -46,6 +47,7 @@ module.exports = {
     require("flowbite/plugin")
   ],
   daisyui:  {
-    base: false
+    base: false,
+    themes: false
   }
 }

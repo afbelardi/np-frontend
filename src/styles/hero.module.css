@@ -6,10 +6,12 @@
 
 .clipboard {
     animation: slideFromLeft 1s ease-in;
+    color: white;
 }
 
 .listItem {
-    animation: slideFromRight 1s ease-in
+    animation: slideFromRight 1s ease-in;
+    color: white;
 }
 
 
