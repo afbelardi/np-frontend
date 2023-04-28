@@ -32,7 +32,7 @@ export default function Navbar () {
         </div>
       </label>
       {showDropdown && 
-      <ul tabIndex={0} className="p-2 mt-3 shadow bg-navbar-blue menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="p-2 mt-3 shadow bg-navbar-blue menu menu-compact dropdown-content rounded-box w-52">
       <li>
         <Link href='/profile' className="text-white">
           Profile
