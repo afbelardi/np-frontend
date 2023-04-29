@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar"
-import { useRef, useEffect, useContext } from 'react';
+import { useRef, useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Link from "next/link";
 import Head from "next/head";
@@ -11,6 +11,7 @@ export default function Login () {
 const router = useRouter();
 const email = useRef(null);
 const password = useRef(null);
+const [user, setUser] = useState({})
 
 const { setIsLoggedIn } = useContext(AuthContext)
 

@@ -10,6 +10,7 @@ import Head from 'next/head';
 export default function Home() {
 
   const [parks, setParks] = useState([]);
+  const [user, setUser] = useState({})
 
   return (
     <>
