@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { Jwt } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 export const AuthContext = createContext({});
 
@@ -16,18 +16,23 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem('token');
         if (token) {
             setIsLoggedIn(true)
+    
+            const decodedToken = jwt.decode(token);
+            const userId = decodedToken.userId;
+            (async () => {
+                try {
+                    const response =  await axios.get(`http://localhost:8000/api/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }   
+                })
+                const data = await response.data;
+                setUser(data);
+                } catch (error) {
+                    console.error(error)
+                }
+            })()
         }   
-        const decodedToken = jwt.decode(token);
-        const userId = decodedToken.userId;
-        (async () => {
-            const response = axios.get(`http://localhost:8000/api/user/${userId}`, {
-                Authorization: `Bearer ${token}`
-            })
-            const data = response.data;
-            console.log(data)
-        })
-        
-     
     }, []);
 
     const logout = () => {
@@ -38,7 +43,9 @@ export const AuthProvider = ({ children }) => {
     const value = {
         isLoggedIn,
         logout,
-        setIsLoggedIn
+        setIsLoggedIn,
+        user,
+        setUser
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
