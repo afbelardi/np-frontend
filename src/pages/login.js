@@ -5,7 +5,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
-import jwt from 'jsonwebtoken';
+
 
 
 export default function Login () {
@@ -25,26 +25,7 @@ useEffect(() => {
 })
 
 
-useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-        const decodedToken = jwt.decode(token);
-        const userId = decodedToken.userId;
-        (async () => {
-            try {
-                const response =  await axios.get(`http://localhost:8000/api/users/${userId}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }   
-            })
-            const data = await response.data;
-            setUser(data);
-            } catch (error) {
-                console.error(error)
-            }
-        })()
-    }   
-}, [isLoggedIn]);
+
 
 const handleLogin = async (e) => {
     try {

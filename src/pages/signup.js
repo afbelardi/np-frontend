@@ -1,14 +1,23 @@
 import Navbar from '../components/Navbar';
 import Head from 'next/head';
-import { useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
+import { AuthContext } from '../../authContext';
 
 export default function SignUp () {
 
-
+    const router = useRouter();
     const email = useRef(null);
     const password = useRef(null);
+
+    const { isLoggedIn } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            router.redirect('/search')
+        }
+    })
     
     return (
         <>

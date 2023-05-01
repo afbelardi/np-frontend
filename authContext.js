@@ -10,9 +10,30 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
 
+    
 
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt.decode(token);
+            const userId = decodedToken.userId;
+            (async () => {
+                try {
+                    const response =  await axios.get(`http://localhost:8000/api/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }   
+                })
+                const data = await response.data;
+                setUser(data);
+                } catch (error) {
+                    console.error(error)
+                }
+            })()
+        }   
+    }, [isLoggedIn]);
 
     const logout = () => {
         localStorage.removeItem('token');

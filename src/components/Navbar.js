@@ -14,11 +14,10 @@ export default function Navbar () {
     }
 
     useEffect(() => {
-        if (isLoggedIn && user) {
+        if (user) {
             setWelcomeMessage(`Welcome, ${user.username}`)
-            console.log('hi')
         } 
-    }, [isLoggedIn, user])
+    }, [user])
 
     return (
     <div className="flex justify-center w-full">

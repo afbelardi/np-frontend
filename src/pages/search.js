@@ -103,7 +103,7 @@ export default function Search () {
         if (!isLoggedIn) {
             router.push('/login')
         }
-    }, [isLoggedIn, router])
+    }, [isLoggedIn])
 
    
 
