@@ -29,7 +29,7 @@ export default function Navbar () {
     </Link>
   </div>
   <div className="flex-none gap-2">
-    <div className="dropdown dropdown-end">
+    <div className="z-50 dropdown dropdown-end">
       <label 
       tabIndex={0} 
       className="btn btn-ghost btn-square"
@@ -52,6 +52,12 @@ export default function Navbar () {
             isLoggedIn ? <button className="text-white" onClick={logout}>Log out</button> : <Link className="text-white" href='/login'>
             Log In
         </Link>
+        }
+        
+      </li>
+      <li>
+        {
+            isLoggedIn ? <Link href="/search" className="text-white">Search</Link> : <Link href="/search" className="hidden">Search</Link>
         }
         
       </li>
