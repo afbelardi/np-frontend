@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
                 })
                 const data = await response.data;
                 setUser(data);
+                setIsLoggedIn(true)
                 } catch (error) {
                     console.error(error)
                 }

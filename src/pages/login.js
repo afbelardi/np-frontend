@@ -18,6 +18,7 @@ const [errorMessage, setErrorMessage] = useState('');
 
 const { setIsLoggedIn, isLoggedIn, setUser, user } = useContext(AuthContext)
 
+
 useEffect(() => {
     if (isLoggedIn) {
         router.replace('/search')
@@ -35,8 +36,8 @@ const handleLogin = async (e) => {
         })
         const data = await response.data;
         localStorage.setItem('token', data.token);
-        setIsLoggedIn(true);
         setErrorMessage('')
+        // setIsLoggedIn(true)
         router.push('/search')
     } catch(error) {
         console.error(error);
