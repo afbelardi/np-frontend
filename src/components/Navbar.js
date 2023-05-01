@@ -1,16 +1,24 @@
 import styles from '../styles/navbar.module.css';
 import Link from 'next/link';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../authContext';
 
 export default function Navbar () {
 
-    const { isLoggedIn, logout } = useContext(AuthContext);
+    const { isLoggedIn, logout, user } = useContext(AuthContext);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [welcomeMessage, setWelcomeMessage] = useState('');
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown);
     }
+
+    useEffect(() => {
+        if (isLoggedIn && user) {
+            setWelcomeMessage(`Welcome, ${user.username}`)
+            console.log('hi')
+        } 
+    }, [isLoggedIn, user])
 
     return (
     <div className="flex justify-center w-full">
@@ -48,9 +56,12 @@ export default function Navbar () {
         
       </li>
       <li>
-        <Link className="text-white" href='/signup'>
+        {
+            isLoggedIn ? <h2 className="font-semibold text-white ">{welcomeMessage}</h2>: <Link className="text-white" href='/signup'>
             Sign Up
         </Link>
+        }
+        
       </li>
     </ul>
       }

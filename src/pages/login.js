@@ -6,16 +6,21 @@ import Head from "next/head";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 
+
 export default function Login () {
 
 const router = useRouter();
 const email = useRef(null);
 const password = useRef(null);
-const [user, setUser] = useState({})
-
-const { setIsLoggedIn } = useContext(AuthContext)
 
 
+const { setIsLoggedIn, isLoggedIn, setUser, user } = useContext(AuthContext)
+
+useEffect(() => {
+    if (isLoggedIn) {
+        router.replace('/search')
+    }
+})
 
 const handleLogin = async (e) => {
     try {
@@ -26,6 +31,7 @@ const handleLogin = async (e) => {
         const data = await response.data;
         localStorage.setItem('token', data.token);
         setIsLoggedIn(true);
+        setUser(user)
         router.push('/search')
     } catch(error) {
         console.error(error)
