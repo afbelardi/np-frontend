@@ -37,7 +37,7 @@ const handleLogin = async (e) => {
         const data = await response.data;
         localStorage.setItem('token', data.token);
         setErrorMessage('')
-        // setIsLoggedIn(true)
+        setIsLoggedIn(true)
         router.push('/search')
     } catch(error) {
         console.error(error);
