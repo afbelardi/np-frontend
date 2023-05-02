@@ -21,7 +21,7 @@ export default function ParkDetails ({ park }) {
     useEffect(() => {
         (async () => {
             const parkCode = id;
-            const response = await axios.get(`http://localhost:8000/api/nationalpark/apikey/park/${parkCode}`);
+            const response = await axios.get(`http://localhost:8000/api/nationalpark/park/${parkCode}`);
             const data = await response.data.data[0];
             console.log(data)
         })()

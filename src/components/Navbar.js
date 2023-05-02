@@ -41,22 +41,22 @@ export default function Navbar () {
       {showDropdown && 
       <ul tabIndex={0} className="p-2 mt-3 shadow bg-navbar-blue menu menu-compact dropdown-content rounded-box w-52">
       <li>
-        <Link href='/profile' className="text-white">
-          Profile
+        <Link href='/favorites' className="text-white">
+          Favorites
           <span className="badge">New</span>
         </Link>
+      </li>
+      <li>
+        {
+            isLoggedIn ? <Link href="/search" className="text-white">Search</Link> : <Link href="/search" className="hidden">Search</Link>
+        }
+        
       </li>
       <li>
         {
             isLoggedIn ? <button className="text-white" onClick={logout}>Log out</button> : <Link className="text-white" href='/login'>
             Log In
         </Link>
-        }
-        
-      </li>
-      <li>
-        {
-            isLoggedIn ? <Link href="/search" className="text-white">Search</Link> : <Link href="/search" className="hidden">Search</Link>
         }
         
       </li>
