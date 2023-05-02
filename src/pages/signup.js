@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { AuthContext } from '../../authContext';
 import axios from 'axios';
 
+
 export default function SignUp () {
 
     const router = useRouter();
@@ -18,7 +19,7 @@ export default function SignUp () {
 
     useEffect(() => {
         if (isLoggedIn) {
-            router.redirect('/search')
+            router.replace('/search')
         }
     });
 
@@ -31,7 +32,9 @@ export default function SignUp () {
                 email: email.current.value
             })
             const data = await response.data
-            console.log(data);
+            if (data.message === 'User created successfully') {
+                router.replace('/login')
+            }
         } catch (error) {
             console.error(error)
         }
@@ -87,14 +90,8 @@ export default function SignUp () {
                   onClick={handleSignup}
                   type="button"
                 >
-                  Sign In
+                  Sign Up
                 </button>
-                <Link
-                  className="inline-block text-sm font-bold text-blue-500 align-baseline hover:text-blue-800"
-                  href="/signup"
-                >
-                  Need to Sign Up?
-                </Link>
               </div>
             </form>
           </div>
