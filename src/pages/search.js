@@ -6,12 +6,14 @@ import styles from '../styles/search.module.css';
 import { useAuth, AuthContext } from '../../authContext';
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { AiOutlineHeart } from 'react-icons/ai';
 
 export default function Search () {
     const router = useRouter();
     const [parks, setParks] = useState([]);
     const [loading, setLoading] = useState(true);
     const inputRef = useRef(null);
+    const [heartColor, setHeartColor] = useState('');
     const { isLoggedIn } = useContext(AuthContext);
 
 
@@ -76,25 +78,32 @@ export default function Search () {
             <p className="mb-3 font-normal text-gray-400">
               {description}
             </p>
-            <Link
-              href={`/parks/${id}`}
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:outline-none hover:bg-blue-700 focus:ring-blue-800"
-            >
-              Read more
-              <svg
-                aria-hidden="true"
-                className="w-4 h-4 ml-2 -mr-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </Link>
+            <div className="flex w-full">
+                <Link
+                href={`/parks/${id}`}
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:outline-none hover:bg-blue-700 focus:ring-blue-800"
+                >
+                Read more
+                <svg
+                    aria-hidden="true"
+                    className="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                    ></path>
+                </svg>
+                </Link>
+                <section className="flex items-center justify-end w-4/6 pl-8 ml-8">
+                    <a href="/" className={styles.heartButton}>
+                        <AiOutlineHeart className="w-10 h-10 text-white"/>
+                    </a>
+                </section>
+            </div>
           </div>
         </div>
       );

@@ -24,3 +24,7 @@
     object-fit: cover;
     width: 100%;
 }
+
+.heartButton:visited {
+    background-color: red;
+}
