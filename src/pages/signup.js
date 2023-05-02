@@ -4,12 +4,15 @@ import { useEffect, useRef, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../authContext';
+import axios from 'axios';
 
 export default function SignUp () {
 
     const router = useRouter();
     const email = useRef(null);
     const password = useRef(null);
+    const password2 = useRef(null);
+    const username = useRef(null);
 
     const { isLoggedIn } = useContext(AuthContext);
 
@@ -17,7 +20,22 @@ export default function SignUp () {
         if (isLoggedIn) {
             router.redirect('/search')
         }
-    })
+    });
+
+
+    const handleSignup = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/api/users/signup', {
+                username: username.current.value,
+                password: password.current.value,
+                email: email.current.value
+            })
+            const data = await response.data
+            console.log(data);
+        } catch (error) {
+            console.error(error)
+        }
+    }
     
     return (
         <>
@@ -41,6 +59,16 @@ export default function SignUp () {
                   placeholder="Email Address"
                 />
               </div>
+              <div className="mb-4">
+                <label className="mb-2 text-sm font-bold text-gray-700">
+                  Username
+                </label>
+                <input
+                  className="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  ref={username}
+                  placeholder="Username"
+                />
+              </div>
               <div className="mb-6">
                 <label className="block mb-2 text-sm font-bold text-gray-700">
                   Password
@@ -56,7 +84,7 @@ export default function SignUp () {
               <div className="flex items-center justify-between">
                 <button
                   className="px-4 py-2 font-bold text-white rounded bg-light-purple hover:bg-dark-purple focus:outline-none focus:shadow-outline"
-                //   onClick={handleLogin}
+                  onClick={handleSignup}
                   type="button"
                 >
                   Sign In

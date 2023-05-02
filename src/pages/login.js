@@ -57,7 +57,7 @@ const handleLogin = async (e) => {
           <div className="w-full max-w-xs">
             <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
               <div className="mb-4">
-                <label className="mb-2 text-sm font-bold text-gray-700">
+                <label className="mb-4 text-sm font-bold text-gray-700">
                   Email Address
                 </label>
                 <input
