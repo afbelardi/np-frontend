@@ -5,6 +5,7 @@ import Head from "next/head";
 import styles from '../styles/search.module.css';
 import { useAuth, AuthContext } from '../../authContext';
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Search () {
     const router = useRouter();
@@ -60,7 +61,7 @@ export default function Search () {
       );
     };
 
-    const Card = ({ fullName, image, description }) => {
+    const Card = ({ fullName, image, description, id }) => {
       return (
         <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow">
           <a href="#">
@@ -75,8 +76,8 @@ export default function Search () {
             <p className="mb-3 font-normal text-gray-400">
               {description}
             </p>
-            <a
-              href="#"
+            <Link
+              href={`/parks/${id}`}
               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:outline-none hover:bg-blue-700 focus:ring-blue-800"
             >
               Read more
@@ -93,7 +94,7 @@ export default function Search () {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       );
@@ -171,6 +172,7 @@ export default function Search () {
                 fullName={parks[index].fullName}
                 image={parks[index].images[0].url}
                 description={parks[index].description}
+                id={parks[index].parkCode}
                 />
                ))
             }
