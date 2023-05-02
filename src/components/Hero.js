@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full overflow-x-hidden mt-14">
+      <div className="flex flex-col items-center justify-center w-full mt-24 overflow-x-hidden">
         <h1 className="p-4 text-5xl font-bold text-center text-white font-monserrat">
           Plan your next
           <p
