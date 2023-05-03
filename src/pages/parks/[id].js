@@ -3,6 +3,8 @@ import Navbar from '../../components/Navbar';
 import { AuthContext } from '../../../authContext';
 import { useContext, useEffect } from 'react';
 import axios from 'axios';
+import Head from 'next/head';
+import Header from '../../components/Header';
 
 export default function ParkDetails ({ park }) {
 
@@ -31,7 +33,9 @@ export default function ParkDetails ({ park }) {
 
     return (
         <>
+            <Header />
             <Navbar />
+
         </>
     )
 }

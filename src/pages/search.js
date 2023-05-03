@@ -7,6 +7,7 @@ import { useAuth, AuthContext } from '../../authContext';
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { AiOutlineHeart } from 'react-icons/ai';
+import Header from "../components/Header";
 
 export default function Search () {
     const router = useRouter();
@@ -155,12 +156,7 @@ export default function Search () {
 
     return (
         <>
-        <Head>
-            <title>NP Finder</title>
-            <meta name="description" content="Discover National Park sites to visit" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link rel="icon" href="/mountain.png" />
-        </Head>
+            <Header />
             <Navbar />
             <div className="flex flex-col items-center h-56 mt-16 text-center">
                 <h1 className="pl-4 pr-4 mb-4 text-2xl font-bold text-white font-monserrat">Search by state abbreviation</h1>

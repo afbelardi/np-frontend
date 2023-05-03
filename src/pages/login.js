@@ -5,6 +5,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
+import Header from "../components/Header";
 
 
 
@@ -46,12 +47,7 @@ const handleLogin = async (e) => {
 }
     return (
       <>
-        <Head>
-            <title>NP Finder</title>
-            <meta name="description" content="Discover National Park sites to visit" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link rel="icon" href="/mountain.png" />
-        </Head>
+        <Header />
         <Navbar />
         <div className="flex justify-center mt-40">
           <div className="w-full max-w-xs">

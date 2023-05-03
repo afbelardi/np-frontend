@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../authContext';
 import axios from 'axios';
+import Header from '../components/Header';
 
 
 export default function SignUp () {
@@ -42,12 +43,7 @@ export default function SignUp () {
     
     return (
         <>
-        <Head>
-            <title>NP Finder</title>
-            <meta name="description" content="Discover National Park sites to visit" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <link rel="icon" href="/mountain.png" />
-        </Head>
+            <Header />
             <Navbar />
             <div className="flex justify-center mt-40">
           <div className="w-full max-w-xs">
