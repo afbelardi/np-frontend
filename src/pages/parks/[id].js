@@ -1,17 +1,18 @@
 import { useRouter } from 'next/router'; 
 import Navbar from '../../components/Navbar';
 import { AuthContext } from '../../../authContext';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Header from '../../components/Header';
 
-export default function ParkDetails ({ park }) {
+export default function ParkDetails ( ) {
 
     
     const { isLoggedIn } = useContext(AuthContext)
     const router = useRouter();
-    const { id } = router.query
+    const { id } = router.query;
+    const [currentPark, setCurrentPark] = useState({})
     
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export default function ParkDetails ({ park }) {
             const parkCode = id;
             const response = await axios.get(`http://localhost:8000/api/nationalpark/park/${parkCode}`);
             const data = await response.data.data[0];
-            console.log(data)
+            setCurrentPark(data);
         })()
     }, [])
     
@@ -35,7 +36,8 @@ export default function ParkDetails ({ park }) {
         <>
             <Header />
             <Navbar />
-
+            <h1 className="mt-10 ml-6 text-xl font-bold text-left text-white font-monserrat">{currentPark.fullName}</h1>
+            
         </>
     )
 }
