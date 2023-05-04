@@ -36,7 +36,7 @@ export default function ParkDetails ( ) {
                 console.log(data)
                 sessionStorage.setItem('currentPark', JSON.stringify(data));
                 sessionStorage.setItem('parkImages', JSON.stringify(data.images));
-                setLoading(false);
+                // setLoading(false);
                 console.log('saved in session storage')
             } catch(error) {
                 console.error(error)
@@ -56,10 +56,10 @@ export default function ParkDetails ( ) {
 
     const Skeleton = () => {
         return (
-        <div className="flex justify-center w-full mt-16 h-3/4">
+        <div className="flex flex-col items-center w-full max-w-xl mt-16">
           <div
             role="status"
-            className="w-4/5 h-full p-4 mb-5 rounded shadow animate-pulse md:p-6"
+            className="w-4/5 p-4 rounded animate-pulse md:p-6"
           >
             <div className="h-2.5  rounded-full bg-slate-500 w-48 mb-4"></div>
             <div className="flex items-center justify-center h-48 mb-4 rounded bg-slate-500">
@@ -78,19 +78,6 @@ export default function ParkDetails ( ) {
             <div className="h-2  rounded-full bg-slate-500 mb-2.5"></div>
             <div className="h-2 rounded-full bg-slate-500"></div>
             <div className="flex items-center mt-4 space-x-3">
-              <svg
-                className="text-slate-500 w-14 h-14"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
               <div>
                 <div className="h-2.5 rounded-full bg-slate-500 w-32 mb-2"></div>
                 <div className="w-48 h-2 rounded-full bg-slate-500"></div>
@@ -98,7 +85,15 @@ export default function ParkDetails ( ) {
             </div>
             <span className="sr-only">Loading...</span>
           </div>
+
+          <div className="flex justify-between w-3/4 mt-4 rounded-md animate-pulse">
+            <section className="w-1/4 h-48 mr-2 rounded-md bg-slate-500">
+            </section>
+            <section className="w-3/4 h-48 rounded-md bg-slate-500">
+            </section>
           </div>
+
+        </div>
         );
       };
 
