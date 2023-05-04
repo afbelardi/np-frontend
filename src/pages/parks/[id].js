@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'; 
 import Navbar from '../../components/Navbar';
 import { AuthContext } from '../../../authContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Header from '../../components/Header';
 import { Carousel } from 'flowbite-react';
@@ -17,6 +17,7 @@ export default function ParkDetails ( ) {
     const [currentPark, setCurrentPark] = useState({});
     const [loading, setLoading] = useState(true);
     const [parkImages, setParkImages] = useState([]);
+
     
 
     // useEffect(() => {
@@ -34,10 +35,8 @@ export default function ParkDetails ( ) {
                 setCurrentPark(data);
                 setParkImages(data.images);
                 console.log(data)
-                sessionStorage.setItem('currentPark', JSON.stringify(data));
-                sessionStorage.setItem('parkImages', JSON.stringify(data.images));
-                // setLoading(false);
-                console.log('saved in session storage')
+                sessionStorage.setItem('id', JSON.stringify(data.parkCode));
+                setLoading(false);
             } catch(error) {
                 console.error(error)
             }
@@ -47,12 +46,14 @@ export default function ParkDetails ( ) {
 
     // useEffect(() => {
     //         const storedPark = JSON.parse(sessionStorage.getItem('currentPark'));
-    //     const storedImages = JSON.parse(sessionStorage.getItem('parkImages'));
-    //     if (storedPark && storedImages) {
+    //         const storedImages = JSON.parse(sessionStorage.getItem('parkImages'));
+    //         if (storedPark && storedImages) {
+    //         console.log('working')
     //         setCurrentPark(storedPark);
     //         setParkImages(storedImages);
+    //         setLoading(false)
     //     }    
-    // }, [id]);
+    // }, []);
 
     const Skeleton = () => {
         return (
