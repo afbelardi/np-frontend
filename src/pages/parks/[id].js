@@ -8,7 +8,10 @@ import { Carousel } from 'flowbite-react';
 import styles from '../../styles/parkdetails.module.css';
 
 
-export default function ParkDetails ( ) {
+
+
+
+export default function ParkDetails ({ park }) {
 
     
     const { isLoggedIn } = useContext(AuthContext)
@@ -17,43 +20,26 @@ export default function ParkDetails ( ) {
     const [currentPark, setCurrentPark] = useState({});
     const [loading, setLoading] = useState(true);
     const [parkImages, setParkImages] = useState([]);
-
     
-
+ 
     // useEffect(() => {
     //     if (!isLoggedIn) {
     //         router.replace('/login')
     //     }
     // }, []);
 
-    useEffect(() => {
-        (async () => {
-            try {
-                const parkCode = id;
-                const response = await axios.get(`http://localhost:8000/api/nationalpark/park/${parkCode}`);
-                const data = await response.data.data[0];
-                setCurrentPark(data);
-                setParkImages(data.images);
-                console.log(data)
-                sessionStorage.setItem('id', JSON.stringify(data.parkCode));
-                setLoading(false);
-            } catch(error) {
-                console.error(error)
-            }
-            
-        })()
-    }, []);
+  useEffect(() => {
+    if (park){
+      setLoading(false)
+    }
+  })
 
-    // useEffect(() => {
-    //         const storedPark = JSON.parse(sessionStorage.getItem('currentPark'));
-    //         const storedImages = JSON.parse(sessionStorage.getItem('parkImages'));
-    //         if (storedPark && storedImages) {
-    //         console.log('working')
-    //         setCurrentPark(storedPark);
-    //         setParkImages(storedImages);
-    //         setLoading(false)
-    //     }    
-    // }, []);
+    
+    
+    
+    
+    
+    
 
     const Skeleton = () => {
         return (
@@ -108,22 +94,36 @@ export default function ParkDetails ( ) {
             {loading ? 
             <Skeleton /> :
             <>
-            <h1 className="mt-10 mb-10 ml-6 text-xl font-bold text-left text-white font-monserrat">{currentPark.fullName}</h1>
-            <div className="flex justify-center w-full h-1/2">
+            <h1 className="mt-10 mb-10 ml-6 text-xl font-bold text-left text-white font-monserrat">{park.fullName}</h1>
+            <div className="flex justify-center w-full h-1/2"> 
             <section className={`${styles.carouselWrapper} flex justify-center w-full h-3/4`}>
                 <Carousel>
-                {parkImages.map(index => (
+                {park.images.map(index => (
                         <img 
                         className="object-cover w-full h-full" 
                         src={index.url} 
                         />
                     ))}
                 </Carousel> 
-            </section>
-            </div>
+            </section> 
+             </div>
             </>
             }
             
         </>
     )
-} 
+
+
+   }
+
+          export async function getServerSideProps(context) {
+            const { id } = context.query;
+            const res = await axios.get(`http://localhost:8000/api/nationalpark/park/${id}`);
+            const park = await res.data.data[0]
+            return {
+              props: {
+                park,
+              },
+            };
+      } 
+
