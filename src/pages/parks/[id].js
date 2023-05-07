@@ -84,7 +84,10 @@ export default function ParkDetails ({ park }) {
       };
 
     
-
+      const center = {
+        lat: parseFloat(park.latitude),
+        lng: parseFloat(park.longitude)
+      }
 
     return (
         <>
@@ -109,7 +112,9 @@ export default function ParkDetails ({ park }) {
             
 
             </div>
-            <MapLocator />
+            <MapLocator 
+            center={center}
+            />
             </div>
             }
             
