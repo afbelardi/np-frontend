@@ -1,11 +1,8 @@
-import { TbCheckupList } from 'react-icons/tb';
-import styles from '../styles/hero.module.css';
-import Link from 'next/link';
-
+import { TbCheckupList } from "react-icons/tb";
+import styles from "../styles/hero.module.css";
+import Link from "next/link";
 
 export default function Hero() {
-
-
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full mt-12 overlow-x-hidden">
