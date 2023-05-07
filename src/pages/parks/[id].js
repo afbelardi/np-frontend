@@ -109,12 +109,12 @@ export default function ParkDetails ({ park }) {
                     ))}
                 </Carousel> 
             </section>
-            
-
             </div>
-            <MapLocator 
-            center={center}
-            />
+            <div className='flex justify-center'>
+              <MapLocator 
+              center={center}
+              />
+            </div>
             </div>
             }
             

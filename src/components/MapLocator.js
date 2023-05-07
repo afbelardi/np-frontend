@@ -5,7 +5,9 @@ const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 const containerStyle = {
     width: '400px',
-    height: '400px'
+    height: '400px',
+    borderRadius: '8px',
+    marginBottom: '20px'
   };
   
 
