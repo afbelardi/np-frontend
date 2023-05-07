@@ -6,7 +6,7 @@ import axios from 'axios';
 import Header from '../../components/Header';
 import { Carousel } from 'flowbite-react';
 import styles from '../../styles/parkdetails.module.css';
-import { MapLocator } from '../../components/MapLocator';
+import MapLocator from '../../components/MapLocator';
 
 
 
@@ -107,7 +107,9 @@ export default function ParkDetails ({ park }) {
                 </Carousel> 
             </section>
             
-             </div>
+
+            </div>
+            <MapLocator />
             </div>
             }
             
