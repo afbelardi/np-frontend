@@ -6,7 +6,7 @@ import axios from 'axios';
 import Header from '../../components/Header';
 import { Carousel } from 'flowbite-react';
 import styles from '../../styles/parkdetails.module.css';
-
+import { MapLocator } from '../../components/MapLocator';
 
 
 
@@ -16,10 +16,9 @@ export default function ParkDetails ({ park }) {
     
     const { isLoggedIn } = useContext(AuthContext)
     const router = useRouter();
-    const { id } = router.query;
     const [currentPark, setCurrentPark] = useState({});
     const [loading, setLoading] = useState(true);
-    const [parkImages, setParkImages] = useState([]);
+  
     
  
     // useEffect(() => {
@@ -93,21 +92,23 @@ export default function ParkDetails ({ park }) {
             <Navbar />
             {loading ? 
             <Skeleton /> :
-            <>
+            <div className="flex flex-col h-full">
             <h1 className="mt-10 mb-10 ml-6 text-xl font-bold text-left text-white font-monserrat">{park.fullName}</h1>
             <div className="flex justify-center w-full h-1/2"> 
             <section className={`${styles.carouselWrapper} flex justify-center w-full h-3/4`}>
                 <Carousel>
                 {park.images.map(index => (
                         <img 
+                        key={index}
                         className="object-cover w-full h-full" 
                         src={index.url} 
                         />
                     ))}
                 </Carousel> 
-            </section> 
+            </section>
+            
              </div>
-            </>
+            </div>
             }
             
         </>
@@ -116,14 +117,16 @@ export default function ParkDetails ({ park }) {
 
    }
 
-          export async function getServerSideProps(context) {
-            const { id } = context.query;
-            const res = await axios.get(`http://localhost:8000/api/nationalpark/park/${id}`);
-            const park = await res.data.data[0]
-            return {
-              props: {
-                park,
-              },
-            };
-      } 
+   export async function getServerSideProps(context) {
+     const { id } = context.query;
+     const res = await axios.get(
+       `http://localhost:8000/api/nationalpark/park/${id}`
+     );
+     const park = await res.data.data[0];
+     return {
+       props: {
+         park,
+       },
+     };
+   } 
 

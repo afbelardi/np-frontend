@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
                 }
             })()
         }   
-    }, [isLoggedIn]);
+    }, []);
 
     const logout = () => {
         localStorage.removeItem('token');
