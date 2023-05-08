@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 const containerStyle = {
-  width: "400px",
+  width: "90%",
   height: "400px",
   borderRadius: "8px",
   marginBottom: "20px",

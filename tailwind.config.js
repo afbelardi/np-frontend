@@ -20,7 +20,9 @@ module.exports = {
         'hero-image': "url('/forwebsite.jpg')"
       },
       height: {
-        '500': '500px'
+        '500': '500px',
+        '600': '600px',
+        '700': '700px'
       },
       colors: {
         'boston-blue': {

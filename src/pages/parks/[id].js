@@ -75,13 +75,16 @@ export default function ParkDetails({ park }) {
       {loading ? (
         <Skeleton />
       ) : (
-        <div className="flex flex-col h-full">
-          <h1 className="mt-10 mb-10 ml-6 text-xl font-bold text-left text-white font-monserrat">
+        <div className="flex flex-col h-screen overflow-y-scroll">
+          <h1 className="mt-10 mb-3 ml-6 text-xl font-bold text-left text-white font-monserrat">
             {park.fullName}
           </h1>
-          <div className="flex justify-center w-full h-1/2">
+          <h2 className="p-6 text-sm font-semibold text-left text-white font-monserrat">
+            {park.description}
+          </h2>
+          <div className="flex justify-center w-full">
             <section
-              className={`${styles.carouselWrapper} flex justify-center w-full h-3/4`}
+              className={`${styles.carouselWrapper} h-500 mb-8 flex justify-center w-full`}
             >
               <Carousel>
                 {park.images.map((index) => (
