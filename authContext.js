@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-import jwt from "jsonwebtoken";
+import jwt, { decode } from "jsonwebtoken";
 
 export const AuthContext = createContext({});
 
@@ -9,16 +9,21 @@ export const AuthContext = createContext({});
 // }
 
 export const AuthProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    let decodedToken = null;
+    let token = null;
+    if (typeof window !== 'undefined') {
+        token = localStorage.getItem('token')
+        decodedToken = token ? jwt.decode(token) : null;
+      }
+    
+    const [isLoggedIn, setIsLoggedIn] = useState(!!decodedToken);
     const [user, setUser] = useState(null);
 
     
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            const decodedToken = jwt.decode(token);
-            const userId = decodedToken.userId;
+        const userId = decodedToken ? decodedToken.userId : null;
+        if (userId) {
             (async () => {
                 try {
                     const response =  await axios.get(`http://localhost:8000/api/users/${userId}`, {
@@ -28,13 +33,12 @@ export const AuthProvider = ({ children }) => {
                 })
                 const data = await response.data;
                 setUser(data);
-                setIsLoggedIn(true)
                 } catch (error) {
                     console.error(error)
                 }
             })()
         }   
-    }, []);
+    }, [token]);
 
     const logout = () => {
         localStorage.removeItem('token');

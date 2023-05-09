@@ -14,11 +14,11 @@ export default function ParkDetails({ park }) {
   const [currentPark, setCurrentPark] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //     if (!isLoggedIn) {
-  //         router.replace('/login')
-  //     }
-  // }, []);
+  useEffect(() => {
+      if (!isLoggedIn) {
+          router.replace('/login')
+      }
+  }, []);
 
   useEffect(() => {
     if (park) {
