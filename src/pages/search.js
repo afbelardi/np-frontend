@@ -112,12 +112,12 @@ export default function Search() {
     (async () => {
       try {
         const response1 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/apikey/WA"
+          "http://localhost:8000/api/nationalpark/apikey/WA"
         );
         const data1 = response1.data.data[9];
 
         const response2 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/apikey/CA"
+          "http://localhost:8000/api/nationalpark/apikey/CA"
         );
         const data2 = response2.data.data[32];
 
@@ -137,7 +137,7 @@ export default function Search() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://np-backend.herokuapp.com/api/nationalpark/apikey/${inputRef.current.value}`
+        `http:localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
       setParks(data.data);

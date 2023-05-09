@@ -24,7 +24,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     try {
       const response = await axios.post(
-        "https://np-backend.herokuapp.com/api/users/login",
+        "http:localhost:8000/api/users/login",
         {
           email: email.current.value,
           password: password.current.value,

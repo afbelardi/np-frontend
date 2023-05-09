@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
         if (userId) {
             (async () => {
                 try {
-                    const response =  await axios.get(`https://np-backend.herokuapp.com/api/users/${userId}`, {
+                    const response =  await axios.get(`http://localhost:8000/api/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }   
