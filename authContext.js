@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
                 }
             })()
         }   
-    }, [token]);
+    }, [decodedToken, token]);
 
     const logout = () => {
         localStorage.removeItem('token');

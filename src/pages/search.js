@@ -65,15 +65,11 @@ export default function Search() {
   const Card = ({ fullName, image, description, id }) => {
     return (
       <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow">
-        <a href="#">
           <img className={`${styles.parkImage} rounded-t-lg`} src={image} />
-        </a>
         <div className="p-5">
-          <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
               {fullName}
             </h5>
-          </a>
           <p className="mb-3 font-normal text-gray-400">{description}</p>
           <div className="flex w-full">
             <Link
@@ -116,12 +112,12 @@ export default function Search() {
     (async () => {
       try {
         const response1 = await axios.get(
-          "http://localhost:8000/api/nationalpark/apikey/WA"
+          "https://np-backend.herokuapp.com/api/nationalpark/apikey/WA"
         );
         const data1 = response1.data.data[9];
 
         const response2 = await axios.get(
-          "http://localhost:8000/api/nationalpark/apikey/CA"
+          "https://np-backend.herokuapp.com/api/nationalpark/apikey/CA"
         );
         const data2 = response2.data.data[32];
 
@@ -141,7 +137,7 @@ export default function Search() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`
+        `https://np-backend.herokuapp.com/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
       setParks(data.data);
