@@ -137,7 +137,7 @@ export default function Search() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http:localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`
+        `http://localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
       setParks(data.data);
