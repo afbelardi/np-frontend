@@ -92,9 +92,9 @@ export default function Search() {
               </svg>
             </Link>
             <section className="flex items-center justify-end w-4/6 pl-8 ml-8">
-              <a href="/" className={styles.heartButton}>
+              {/* <a href="/" className={styles.heartButton}> */}
                 <AiOutlineHeart className="w-10 h-10 text-white" />
-              </a>
+              {/* </a> */}
             </section>
           </div>
         </div>
