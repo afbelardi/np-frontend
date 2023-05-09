@@ -11,7 +11,6 @@ import MapLocator from "../../components/MapLocator";
 export default function ParkDetails({ park }) {
   const { isLoggedIn } = useContext(AuthContext);
   const router = useRouter();
-  const [currentPark, setCurrentPark] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -75,7 +74,7 @@ export default function ParkDetails({ park }) {
       {loading ? (
         <Skeleton />
       ) : (
-        <div className="flex flex-col h-screen overflow-y-scroll">
+        <div className="flex flex-col h-screen">
           <h1 className="mt-10 mb-3 ml-6 text-xl font-bold text-left text-white font-monserrat">
             {park.fullName}
           </h1>
