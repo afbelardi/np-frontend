@@ -74,6 +74,7 @@ export default function Search() {
           <div className="flex w-full">
             <Link
               href={`/parks/${id}`}
+              onClick={() => console.log(id)}
               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:outline-none hover:bg-blue-700 focus:ring-blue-800"
             >
               Read more
