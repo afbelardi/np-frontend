@@ -112,12 +112,13 @@ export default function Search() {
     (async () => {
       try {
         const response1 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/apikey/WA"
+          "http://localhost:8000/api/nationalpark/apikey/WA"
         );
         const data1 = response1.data.data[9];
+        console.log(response1)
 
         const response2 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/apikey/CA"
+          "http://localhost:8000/api/nationalpark/apikey/CA"
         );
         const data2 = response2.data.data[32];
 
@@ -137,7 +138,7 @@ export default function Search() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://np-backend.herokuapp.com/api/nationalpark/apikey/${inputRef.current.value}`
+        `http://localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
       setParks(data.data);
@@ -153,10 +154,10 @@ export default function Search() {
       <Navbar />
       <div className="flex flex-col items-center h-56 mt-16 text-center">
         <h1 className="pl-4 pr-4 mb-4 text-2xl font-bold text-white font-monserrat">
-          Search by state abbreviation
+          Search by state
         </h1>
         <input
-          placeholder="FL"
+          placeholder="FL, California, NY"
           ref={inputRef}
           className={`${styles.input} bg-white`}
         ></input>
