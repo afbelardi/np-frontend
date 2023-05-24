@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import { Carousel } from "flowbite-react";
 import styles from "../../styles/parkdetails.module.css";
 import MapLocator from "../../components/MapLocator";
+import Directions from "../../components/Directions";
 
 export default function ParkDetails({ park }) {
   const { isLoggedIn } = useContext(AuthContext);
@@ -67,6 +68,7 @@ export default function ParkDetails({ park }) {
     lng: parseFloat(park.longitude),
   };
 
+
   return (
     <>
       <Header />
@@ -74,8 +76,8 @@ export default function ParkDetails({ park }) {
       {loading ? (
         <Skeleton />
       ) : (
-        <div className="flex flex-col h-screen">
-          <h1 className="mt-10 mb-3 ml-6 text-xl font-bold text-left text-white font-monserrat">
+        <div className="flex flex-col h-full">
+          <h1 className="mt-10 mb-3 ml-6 text-2xl font-bold text-left text-white font-monserrat">
             {park.fullName}
           </h1>
           <h2 className="p-6 text-sm font-semibold text-left text-white font-monserrat">
@@ -96,6 +98,7 @@ export default function ParkDetails({ park }) {
               </Carousel>
             </section>
           </div>
+          <Directions park={park} />
           <div className="flex justify-center">
             <MapLocator center={center} />
           </div>
