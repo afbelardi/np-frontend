@@ -8,6 +8,7 @@ import { Carousel } from "flowbite-react";
 import styles from "../../styles/parkdetails.module.css";
 import MapLocator from "../../components/MapLocator";
 import Directions from "../../components/Directions";
+import Activities from "../../components/Activities";
 
 export default function ParkDetails({ park }) {
   const { isLoggedIn } = useContext(AuthContext);
@@ -99,6 +100,7 @@ export default function ParkDetails({ park }) {
             </section>
           </div>
           <Directions park={park} />
+          <Activities park={park} />
           <div className="flex justify-center">
             <MapLocator center={center} />
           </div>
