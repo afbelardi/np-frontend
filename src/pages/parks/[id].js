@@ -15,6 +15,8 @@ export default function ParkDetails({ park }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
+
+
   useEffect(() => {
       if (!isLoggedIn) {
           router.replace('/login')
@@ -94,6 +96,7 @@ export default function ParkDetails({ park }) {
                     key={index}
                     className="object-cover w-full h-full"
                     src={index.url}
+                    onError={(index) => index.target.style.display='none'}
                   />
                 ))}
               </Carousel>
