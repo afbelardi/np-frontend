@@ -96,7 +96,7 @@ export default function ParkDetails({ park }) {
                     key={index}
                     className="object-cover w-full h-full"
                     src={index.url}
-                    onError={(index) => index.target.style.display='none'}
+                    onError={(index) => index.target.src='/Arrowhead.png'}
                   />
                 ))}
               </Carousel>
