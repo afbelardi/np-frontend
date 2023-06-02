@@ -14,7 +14,7 @@ export default function Activities({ park }) {
                 {park.activities.map((activity) => {
                     return (
                         <>
-                        <li className="flex items-center font-semibold text-white font-monserrat">
+                        <li className="flex items-center font-semibold text-white font-cabin">
                             <BsArrowReturnRight className="mr-2" />
                                 {activity.name}
                             </li>
