@@ -1,5 +1,6 @@
 import { TbMapSearch } from "react-icons/tb";
 import styles from '../styles/activities.module.css';
+import Link from 'next/link';
 
 export default function Directions({ park }) {
   return (
@@ -11,7 +12,9 @@ export default function Directions({ park }) {
         </section>
         <main className="flex flex-col items-center">
             <p className="p-3 mb-2 text-sm font-medium text-center text-white font-monserrat">{park.directionsInfo}</p>
-            <a className="mb-4 text-center text-white underline" target="_blank" href={park.directionsUrl}>Full Directions</a>
+            <Link href={park.directionsUrl} target="_blank">
+              <button className="mb-4 btn glass">Full Directions</button>
+            </Link>
         </main>
     </div>
     </div>
