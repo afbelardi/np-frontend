@@ -10,7 +10,7 @@ export default function Directions({ park }) {
             <h1 className="text-2xl font-bold text-white font-monserrat">Directions</h1>     
         </section>
         <main className="flex flex-col items-center">
-            <p className="p-3 mb-2 font-medium text-center text-white font-monserrat">{park.directionsInfo}</p>
+            <p className="p-3 mb-2 text-sm font-medium text-center text-white font-monserrat">{park.directionsInfo}</p>
             <a className="mb-4 text-center text-white underline" target="_blank" href={park.directionsUrl}>Full Directions</a>
         </main>
     </div>
