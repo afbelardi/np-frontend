@@ -1,10 +1,11 @@
 import { FiActivity } from 'react-icons/fi';
 import { BsArrowReturnRight } from 'react-icons/bs';
+import styles from '../styles/activities.module.css';
 
 export default function Activities({ park }) {
   return (
     <div className="flex justify-center w-full">
-        <div className='flex flex-col items-center justify-center w-11/12 mb-4 rounded-md bg-navbar-blue'>
+        <div className={` ${styles.floatingDiv} flex flex-col items-center justify-center w-11/12 mb-4 rounded-md bg-navbar-blue`}>
             <section className="flex justify-center w-40 mt-2">
                 <FiActivity className="w-6 h-6 mt-1 mr-2 text-white"/>
                 <h1 className="text-2xl font-bold text-white font-monserrat">Activities</h1>     

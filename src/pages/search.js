@@ -9,7 +9,7 @@ import Link from "next/link";
 import { AiOutlineHeart } from "react-icons/ai";
 import Header from "../components/Header";
 
-export default function Search({ result }) {
+export default function Search() {
   const router = useRouter();
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -108,31 +108,31 @@ export default function Search({ result }) {
     }
   }, [isLoggedIn]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const response1 = await axios.get(
-  //         "http://localhost:8000/api/nationalpark/park/mora"
-  //       );
-  //       const data1 = response1.data.data[0];
+  useEffect(() => {
+    (async () => {
+      try {
+        const response1 = await axios.get(
+          "http://localhost:8000/api/nationalpark/park/mora"
+        );
+        const data1 = response1.data.data[0];
+        console.log(response1)
 
+        const response2 = await axios.get(
+          "http://localhost:8000/api/nationalpark/park/yose"
+        );
+        const data2 = response2.data.data[0];
 
-  //       const response2 = await axios.get(
-  //         "http://localhost:8000/api/nationalpark/park/yose"
-  //       );
-  //       const data2 = response2.data.data[0];
-
-  //       const results = {
-  //         data1: data1,
-  //         data2: data2,
-  //       };
-  //       setParks(results);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   })();
-  // }, []);
+        const results = {
+          data1: data1,
+          data2: data2,
+        };
+        setParks(results);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -170,40 +170,37 @@ export default function Search({ result }) {
         </button>
       </div>
       <div className="flex flex-col items-center">
-        {
-    
-          Object.keys(result).map((index) => (
+        {loading ? (
+          <>
+            <Skeleton />
+            <Skeleton />
+          </>
+        ) : (
+          Object.keys(parks).map((index) => (
             <Card
               key={index}
-              fullName={result[index].fullName}
-              image={result[index].images[0].url}
-              description={result[index].description}
-              id={result[index].parkCode}
+              fullName={parks[index].fullName}
+              image={parks[index].images[0].url}
+              description={parks[index].description}
+              id={parks[index].parkCode}
             />
           ))
-        }
+        )}
       </div>
     </>
   );
 }
 
 
-export async function getServerSideProps() {
-  const res1 = await axios.get(
-    `http://localhost:8000/api/nationalpark/park/mora`
-  );
-  const res2 = await axios.get(`http://localhost:8000/api/nationalpark/park/yose`);
-  const park1 = await res1.data.data[0];
-  const park2 = await res2.data.data[0];
-
-  const result = {
-    park1, 
-    park2
-  }
-  
-  return {
-    props: {
-      result,
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   const res1 = await axios.get(
+//     `http://localhost:8000/api/nationalpark/park/mora`
+//   );
+//   const res2 = await axios.get(`http://localhost:8000/api/nationalpark/park/yose`);
+//   const park = await res.data.data[0];
+//   return {
+//     props: {
+//       park,
+//     },
+//   };
+// }
