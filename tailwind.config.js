@@ -14,7 +14,8 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        monserrat: ['Montserrat', 'sans-serif']
+        monserrat: ['Montserrat', 'sans-serif'],
+        cabin: ['Cabin', 'sans-serif']
       },
       backgroundImage: {
         'hero-image': "url('/forwebsite.jpg')"
@@ -37,7 +38,9 @@ module.exports = {
           '800': '#1d4f6f',
           '900': '#1d435d',
           '950': '#132c3e',
-      },  
+      }, 
+      'bone-white': '#F9F6EE',
+      'off-white': '#FAF9F6', 
       'light-purple': '#9aa2e6',
       'dark-purple': '#7b81b8',
       'navbar-blue': '#2b374f'
