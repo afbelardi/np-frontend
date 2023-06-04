@@ -14,7 +14,7 @@ export default function Search() {
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
   const inputRef = useRef(null);
-  const [heartSelected, setHeartSelected] = useState(false);
+ 
   const { isLoggedIn } = useContext(AuthContext);
 
   const Skeleton = () => {
@@ -63,6 +63,13 @@ export default function Search() {
   };
 
   const Card = ({ fullName, image, description, id }) => {
+
+    const [heartSelected, setHeartSelected] = useState(false);
+
+    const handleHeartClick = () => {
+      setHeartSelected(!heartSelected);
+    }
+    
     return (
       <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow">
           <img className={`${styles.parkImage} rounded-t-lg`} src={image} />
@@ -93,7 +100,7 @@ export default function Search() {
             </Link>
             <section className="flex items-center justify-end w-4/6 pl-8 ml-8">
               {/* <a href="/" className={styles.heartButton}> */}
-                <AiOutlineHeart className="w-10 h-10 text-white" />
+                <AiOutlineHeart onClick={handleHeartClick} className={`w-10 h-10 ${heartSelected ? "text-red-500" : "text-white"}` }/>
               {/* </a> */}
             </section>
           </div>
