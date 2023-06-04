@@ -14,7 +14,7 @@ export default function Search() {
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
   const inputRef = useRef(null);
-  const [heartColor, setHeartColor] = useState("");
+  const [heartSelected, setHeartSelected] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
 
   const Skeleton = () => {
