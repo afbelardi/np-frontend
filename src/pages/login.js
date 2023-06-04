@@ -22,6 +22,7 @@ export default function Login() {
   });
 
   const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:8000/api/users/login",
@@ -46,7 +47,10 @@ export default function Login() {
       <Navbar />
       <div className="flex justify-center mt-40">
         <div className="w-full max-w-xs">
-          <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
+          <form 
+          className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md"
+          onSubmit={handleLogin}
+          >
             <div className="mb-4">
               <label className="mb-4 text-sm font-bold text-gray-700">
                 Email Address
@@ -72,8 +76,7 @@ export default function Login() {
             <div className="flex items-center justify-between">
               <button
                 className="px-4 py-2 font-bold text-white rounded bg-light-purple hover:bg-dark-purple focus:outline-none focus:shadow-outline"
-                onClick={handleLogin}
-                type="button"
+                type="submit"
               >
                 Sign In
               </button>
