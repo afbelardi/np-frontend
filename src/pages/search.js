@@ -6,7 +6,8 @@ import styles from "../styles/search.module.css";
 import { useAuth, AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { AiOutlineHeart } from "react-icons/ai";
+// import { AiOutlineHeart } from "react-icons/ai";
+import { FaHeart } from "react-icons/fa";
 import Header from "../components/Header";
 
 export default function Search() {
@@ -100,7 +101,7 @@ export default function Search() {
             </Link>
             <section className="flex items-center justify-end w-4/6 pl-8 ml-8">
               {/* <a href="/" className={styles.heartButton}> */}
-                <AiOutlineHeart onClick={handleHeartClick} className={`w-10 h-10 ${heartSelected ? "text-red-500" : "text-white"}` }/>
+                <FaHeart onClick={handleHeartClick} className={`w-10 h-10 ${heartSelected ? "text-red-500" : "text-white"}` }/>
               {/* </a> */}
             </section>
           </div>
