@@ -49,10 +49,10 @@ export default function Hero() {
           className={`${styles.intro} w-80 h-80`}
         />
         <section className="flex flex-col items-center mb-4">
-          <h1 className="text-xl font-semibold text-white font-monserrat">
-            Created with the official NPS API
+          <h1 className="text-xl font-semibold text-center text-white font-monserrat">
+            Created with official data from the National Park Service
           </h1>
-          <img src="/Arrowhead.png" className="w-16 mt-4 h-18" />
+          <img src="/Arrowhead.png" className="w-20 mt-4 h-22" />
         </section>
       </div>
     </>
