@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     
     const [isLoggedIn, setIsLoggedIn] = useState(!!decodedToken);
     const [user, setUser] = useState(null);
-
+    // const [favorites, setFavorites] = useState([]);
     
 
     useEffect(() => {
@@ -33,12 +33,13 @@ export const AuthProvider = ({ children }) => {
                 })
                 const data = await response.data;
                 setUser(data);
+                // setFavorites(data.favorites);
                 } catch (error) {
                     console.error(error)
                 }
             })()
         }   
-    }, [decodedToken, token]);
+    }, [token]);
 
     const logout = () => {
         localStorage.removeItem('token');
@@ -51,7 +52,8 @@ export const AuthProvider = ({ children }) => {
         logout,
         setIsLoggedIn,
         user,
-        setUser
+        setUser,
+        // favorites
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
