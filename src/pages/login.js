@@ -13,7 +13,7 @@ export default function Login() {
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { setIsLoggedIn, isLoggedIn, setUser, user } = useContext(AuthContext);
+  const { setIsLoggedIn, isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     if (isLoggedIn) {
