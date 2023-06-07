@@ -145,7 +145,8 @@ export default function Search() {
     })();
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
     try {
       const response = await axios.get(
@@ -167,18 +168,19 @@ export default function Search() {
         <h1 className="pl-4 pr-4 mb-4 text-2xl font-bold text-white font-monserrat">
           Search by state
         </h1>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <input
           placeholder="FL, California, NY"
           ref={inputRef}
           className={`${styles.input} bg-white`}
-        ></input>
+        />
         <button
-          type="button"
-          onClick={handleSubmit}
-          className="py-2.5 px-5 mt-4 text-sm font-medium  rounded-lg border bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
+          type="submit"
+          className="py-2.5 w-1/2 px-5 mt-4 text-sm font-medium  rounded-lg border bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
         >
           Submit
         </button>
+        </form>
       </div>
       <div className="flex flex-col items-center">
         {loading ? (
