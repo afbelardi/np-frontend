@@ -1,14 +1,16 @@
 import Navbar from "../components/Navbar";
 import { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios";
-import Head from "next/head";
 import styles from "../styles/search.module.css";
-import { useAuth, AuthContext } from "../../authContext";
+import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
-// import { AiOutlineHeart } from "react-icons/ai";
 import { FaHeart } from "react-icons/fa";
 import Header from "../components/Header";
+
+const submitFavorite = () => {
+
+}
 
 
 export const Card = ({ fullName, image, description, id }) => {
@@ -205,15 +207,4 @@ export default function Search() {
 }
 
 
-// export async function getServerSideProps() {
-//   const res1 = await axios.get(
-//     `http://localhost:8000/api/nationalpark/park/mora`
-//   );
-//   const res2 = await axios.get(`http://localhost:8000/api/nationalpark/park/yose`);
-//   const park = await res.data.data[0];
-//   return {
-//     props: {
-//       park,
-//     },
-//   };
-// }
+
