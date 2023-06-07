@@ -19,10 +19,11 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(!!decodedToken);
     const [user, setUser] = useState(null);
     // const [favorites, setFavorites] = useState([]);
+    const userId = decodedToken ? decodedToken.userId : null;
     
 
     useEffect(() => {
-        const userId = decodedToken ? decodedToken.userId : null;
+    
         if (userId) {
             (async () => {
                 try {
@@ -53,7 +54,7 @@ export const AuthProvider = ({ children }) => {
         setIsLoggedIn,
         user,
         setUser,
-        // favorites
+        userId
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
