@@ -1,15 +1,42 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../styles/search.module.css';
 import Link from 'next/link';
 import { FaHeart } from "react-icons/fa";
+import { AuthContext } from "../../authContext";
+import axios from 'axios';
 
-export const Card = ({ fullName, image, description, id }) => {
+export const Card = ({ fullName, image, description, parkId }) => {
+
+
 
     const [heartSelected, setHeartSelected] = useState(false);
-  
-    const handleHeartClick = () => {
-      setHeartSelected(!heartSelected);
-    }
+    const { userId, token } = useContext(AuthContext);
+    
+    
+    // const handleHeartClick = () => {
+    //   setHeartSelected(!heartSelected);
+    // }
+
+    const submitFavorite = async () => {
+        try{    
+            console.log(parkId)
+            const response = await axios.put(`http://localhost:8000/api/users/favorites/${userId}`,
+            {
+                parkCode: parkId
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }   
+            });
+            const data = await response.data;
+            console.log(data);
+            setHeartSelected(true);
+        } catch(error) {
+            console.error(error)
+        }
+    
+}
     
     return (
       <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow">
@@ -21,7 +48,7 @@ export const Card = ({ fullName, image, description, id }) => {
           <p className="mb-3 font-normal text-gray-400">{description}</p>
           <div className="flex w-full">
             <Link
-              href={`/parks/${id}`}
+              href={`/parks/${parkId}`}
               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:outline-none hover:bg-blue-700 focus:ring-blue-800"
             >
               Read more
@@ -41,7 +68,7 @@ export const Card = ({ fullName, image, description, id }) => {
             </Link>
             <section className="flex items-center justify-end w-4/6 pl-8 ml-8">
               {/* <a href="/" className={styles.heartButton}> */}
-                <FaHeart onClick={handleHeartClick} className={`w-10 h-10 ${heartSelected ? "text-red-500" : "text-white"}` }/>
+                <FaHeart onClick={() => {submitFavorite()}} className={`w-10 h-10 ${heartSelected ? "text-red-500" : "text-white"}` }/>
               {/* </a> */}
             </section>
           </div>

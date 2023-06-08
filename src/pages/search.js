@@ -5,13 +5,10 @@ import styles from "../styles/search.module.css";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
 import Header from "../components/Header";
 import { Card } from "../components/Card";
 
-// const submitFavorite = ({ id }) => {
-//   const response = await axios.put(`http://localhost:8000/`)
-// }
+
 
 
 // export const Card = ({ fullName, image, description, id }) => {
@@ -198,7 +195,7 @@ export default function Search() {
               fullName={parks[index].fullName}
               image={parks[index].images[0].url}
               description={parks[index].description}
-              id={parks[index].parkCode}
+              parkId={parks[index].parkCode}
             />
           ))
         )}
