@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar";
-import Head from "next/head";
 import { useEffect, useRef, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";

@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import { useRef, useEffect, useState, useContext } from "react";
 import axios from "axios";
 import Link from "next/link";
-import Head from "next/head";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
