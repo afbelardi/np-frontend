@@ -34,19 +34,38 @@ export const Card = ({ fullName, image, description, parkId }) => {
 
     
     const submitFavorite = async () => {
-        try{    
-            const response = await axios.put(`http://localhost:8000/api/users/favorites/${userId}`,
-            {
-                parkCode: parkId
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }   
-            });
-            const data = await response.data;
-            console.log(data);
-            setHeartSelected(!heartSelected);
+        try{   
+            if (heartSelected === false) {
+                const response = await axios.put(`http://localhost:8000/api/users/favorites/${userId}`,
+                {
+                    parkCode: parkId
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }   
+                });
+                const data = await response.data;
+                setHeartSelected(true);
+            } 
+            
+            if (heartSelected === true) {
+                const response = await axios.delete(`http://localhost:8000/api/users/favorites/${userId}`,
+                {
+                    parkCode: parkId
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log(token)
+                console.log(parkId)
+                console.log(userId)
+                const data = await response.data
+                setHeartSelected(false)
+            }
+            
         } catch(error) {
             console.error(error)
         }
