@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '../styles/search.module.css';
 import Link from 'next/link';
 import { FaHeart } from "react-icons/fa";
@@ -12,26 +12,59 @@ export const Card = ({ fullName, image, description, parkId }) => {
     const [heartSelected, setHeartSelected] = useState(false);
     const { userId, token } = useContext(AuthContext);
     
-    
-    // const handleHeartClick = () => {
-    //   setHeartSelected(!heartSelected);
-    // }
+    useEffect(() => {
+        const checkFavoriteStatus = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/users/favorites/${userId}`, {
+                    headers: {
+                        'Authorization' : `Bearer ${token}`
+                    }
+                });
+                const favorites = response.data
+                const isFavorite = favorites.some(favorite => favorite.parkCode === parkId);
+                setHeartSelected(isFavorite)
+            } catch(error) {
+                console.error(error)
+            }
+        };
+        if (userId) {
+            checkFavoriteStatus();
+        }
+    }, [userId, parkId]);
 
+    
     const submitFavorite = async () => {
-        try{    
-            console.log(parkId)
-            const response = await axios.put(`http://localhost:8000/api/users/favorites/${userId}`,
-            {
-                parkCode: parkId
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }   
-            });
-            const data = await response.data;
-            console.log(data);
-            setHeartSelected(true);
+        try{   
+            if (heartSelected === false) {
+                const response = await axios.put(`http://localhost:8000/api/users/favorites/${userId}`,
+                {
+                    parkCode: parkId
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }   
+                });
+                const data = await response.data;
+                setHeartSelected(true);
+            } 
+            
+            if (heartSelected === true) {
+                const response = await axios.delete(`http://localhost:8000/api/users/favorites/${userId}`, {
+                    headers: {
+                      Authorization: `Bearer ${token}`
+                    },
+                    data: {
+                      parkCode: parkId
+                    }
+                  });
+                console.log(token)
+                console.log(parkId)
+                console.log(userId)
+                const data = await response.data
+                setHeartSelected(false)
+            }
+            
         } catch(error) {
             console.error(error)
         }

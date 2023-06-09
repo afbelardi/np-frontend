@@ -126,7 +126,7 @@ export default function Search() {
           "http://localhost:8000/api/nationalpark/park/mora"
         );
         const data1 = response1.data.data[0];
-        console.log(response1)
+        
 
         const response2 = await axios.get(
           "http://localhost:8000/api/nationalpark/park/yose"
