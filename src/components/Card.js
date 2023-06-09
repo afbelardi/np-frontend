@@ -50,15 +50,14 @@ export const Card = ({ fullName, image, description, parkId }) => {
             } 
             
             if (heartSelected === true) {
-                const response = await axios.delete(`http://localhost:8000/api/users/favorites/${userId}`,
-                {
-                    parkCode: parkId
-                },
-                {
+                const response = await axios.delete(`http://localhost:8000/api/users/favorites/${userId}`, {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                      Authorization: `Bearer ${token}`
+                    },
+                    data: {
+                      parkCode: parkId
                     }
-                });
+                  });
                 console.log(token)
                 console.log(parkId)
                 console.log(userId)
