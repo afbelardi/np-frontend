@@ -85,8 +85,8 @@ export default function ParkDetails({ park }) {
             {park.fullName}
           </h1>
           <div className="flex justify-center w-full mb-6">
-            <section className={` ${newStyles.floatingDiv} w-11/12 rounded-md bg-off-white/10 backdrop-blur-md`}>
-              <h2 className="p-6 text-sm font-semibold leading-5 text-center text-off-white font-cabin">
+            <section className={` ${newStyles.floatingDiv} w-11/12 rounded-md bg-slate-400/20 backdrop-blur-md`}>
+              <h2 className="p-6 text-lg font-semibold leading-7 text-center text-off-white font-aeonik-bold-italic">
                 {park.description}
               </h2>
             </section>
