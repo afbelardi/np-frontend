@@ -14,3 +14,20 @@ body,
   min-height: 100vh;
   
 }
+
+
+
+@font-face {
+  font-family: "Aeonik Bold";
+  src: local("Aeonik-Bold"),
+  url('/fonts/Aeonik-Bold.otf')
+  format("opentype");
+}
+
+@font-face {
+  font-family: "Aeonik Regular";
+  src: local("Aeonik-Regular"),
+  url('/fonts/Aeonik-Regular.otf')
+  format("opentype");
+}
+

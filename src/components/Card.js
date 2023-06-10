@@ -58,13 +58,10 @@ export const Card = ({ fullName, image, description, parkId }) => {
                       parkCode: parkId
                     }
                   });
-                console.log(token)
-                console.log(parkId)
-                console.log(userId)
                 const data = await response.data
                 setHeartSelected(false)
             }
-            
+                 
         } catch(error) {
             console.error(error)
         }
