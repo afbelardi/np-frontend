@@ -12,9 +12,6 @@ import { Skeleton } from "../components/Skeleton";
 
 
 
-
-
-
 export default function Search() {
   const router = useRouter();
   const [parks, setParks] = useState([]);

@@ -4,13 +4,14 @@ import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import Header from "../components/Header";
-import Card from '../pages/search'; 
+import { Card } from '../components/Card'; 
+import { Skeleton } from "../components/Skeleton";
 
-export default function Favorites({ parks }) {
+export default function Favorites() {
   const router = useRouter();
   const { isLoggedIn, userId, token } = useContext(AuthContext);
-  const [favoriteParks, setFavoriteParks] = useState([]);
-
+  const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
 
  useEffect(() => {
   (async () => {
@@ -20,9 +21,10 @@ export default function Favorites({ parks }) {
       }
     })
     const data = response.data
-    setFavoriteParks(data);
+    setFavorites(data);
+    setLoading(false);
   })()
- }, [userId])
+ }, [userId, favorites])
 
 
   useEffect(() => {
@@ -36,7 +38,25 @@ export default function Favorites({ parks }) {
       <Header />
       <Navbar />
       <div className="flex justify-center w-full mt-4">
-        <h1 className="text-4xl tracking-[2px] font-aeonik-bold text-off-white">Favorites</h1>
+        <h1 className="text-4xl mb-8 tracking-[2px] font-aeonik-bold text-off-white">Favorites</h1>
+      </div>
+      <div className="flex flex-col items-center">
+        {loading ? (
+          <>
+            <Skeleton />
+            <Skeleton />
+          </>
+        ) : (
+          Object.keys(favorites).map((index) => (
+            <Card
+              key={index}
+              fullName={favorites[index].fullName}
+              image={favorites[index].images[0].url}
+              description={favorites[index].description}
+              parkId={favorites[index].parkCode}
+            />
+          ))
+        )}
       </div>
     </>
   );
