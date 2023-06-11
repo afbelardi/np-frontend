@@ -22,7 +22,7 @@ export default function Favorites({ parks }) {
     const data = response.data
     setFavoriteParks(data);
   })()
- }, [])
+ }, [userId])
 
 
   useEffect(() => {
