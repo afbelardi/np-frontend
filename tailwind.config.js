@@ -17,6 +17,7 @@ module.exports = {
         monserrat: ['Montserrat', 'sans-serif'],
         'aeonik-bold': ['Aeonik Bold', 'sans-serif'],
         'aeonik-regular': ['Aeonik Regular', 'sans-serif'],
+        'aeonik-bold-italic': ['Aeonik Bold-Italic', 'sans-serif'],
         cabin: ['Cabin', 'sans-serif']
       },
       backgroundImage: {

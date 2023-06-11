@@ -31,3 +31,10 @@ body,
   format("opentype");
 }
 
+@font-face {
+  font-family: "Aeonik Bold-Italic";
+  src: local("Aeonik-Bold-Italic"),
+  url('/fonts/Aeonik-Bold-Italic.otf')
+  format("opentype");
+}
+
