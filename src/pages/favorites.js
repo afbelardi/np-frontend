@@ -8,9 +8,21 @@ import Card from '../pages/search';
 
 export default function Favorites({ parks }) {
   const router = useRouter();
-  const { isLoggedIn, favorites } = useContext(AuthContext);
-  // const [favoriteParks, setFavoriteParks] = useState([]);
+  const { isLoggedIn, userId, token } = useContext(AuthContext);
+  const [favoriteParks, setFavoriteParks] = useState([]);
 
+
+ useEffect(() => {
+  (async () => {
+    const response = await axios.get(`http://localhost:8000/api/users/favorites/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    const data = response.data
+    setFavoriteParks(data);
+  })()
+ }, [])
 
 
   useEffect(() => {
@@ -23,6 +35,9 @@ export default function Favorites({ parks }) {
     <>
       <Header />
       <Navbar />
+      <div className="flex justify-center w-full mt-4">
+        <h1 className="text-4xl tracking-[2px] font-aeonik-bold text-off-white">Favorites</h1>
+      </div>
     </>
   );
 }
