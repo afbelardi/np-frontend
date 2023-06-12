@@ -5,12 +5,13 @@ import Link from "next/link";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
+import styles from "../styles/login.module.css";
 
 export default function Login() {
   const router = useRouter();
   const email = useRef(null);
   const password = useRef(null);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const { setIsLoggedIn, isLoggedIn } = useContext(AuthContext);
 
@@ -19,6 +20,17 @@ export default function Login() {
       router.replace("/search");
     }
   });
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timeoutId = setTimeout(() => {
+        setErrorMessage(false)
+      }, 7000);
+      return () => {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [errorMessage])
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,12 +44,12 @@ export default function Login() {
       );
       const data = await response.data;
       localStorage.setItem("token", data.token);
-      setErrorMessage("");
+      setErrorMessage(false);
       setIsLoggedIn(true);
       router.push("/search");
     } catch (error) {
       console.error(error);
-      setErrorMessage(error);
+      setErrorMessage(true);
     }
   };
   return (
@@ -55,9 +67,10 @@ export default function Login() {
                 Email Address
               </label>
               <input
-                className="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                className={`${errorMessage ? 'border-red-500' : 'border-gray-300'} w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
                 ref={email}
                 placeholder="Email Address"
+                
               />
             </div>
             <div className="mb-6">
@@ -71,7 +84,7 @@ export default function Login() {
                 placeholder="******************"
                 onFocus={(e) => (e.target.value = '')}
               />
-              {/* <p class="text-red-500 text-xs italic">Please choose a password.</p> */}
+
             </div>
             <div className="flex items-center justify-between">
               <button
@@ -94,7 +107,7 @@ export default function Login() {
         <div className="flex justify-center w-full">
           <div
             id="toast-danger"
-            className="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow"
+            className={`flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow`}
             role="alert"
           >
             <div class="ml-3 text-sm text-red-700 font-bold">
