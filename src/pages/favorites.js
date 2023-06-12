@@ -12,6 +12,7 @@ export default function Favorites() {
   const { isLoggedIn, userId, token } = useContext(AuthContext);
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
  useEffect(() => {
   (async () => {
@@ -38,7 +39,7 @@ export default function Favorites() {
       <Header />
       <Navbar />
       <div className="flex justify-center w-full mt-4">
-        <h1 className="text-4xl mb-8 tracking-[2px] font-aeonik-bold text-off-white">Favorites</h1>
+        <h1 className="text-4xl mb-8 tracking-[2px] font-aeonik-bold text-off-white">{`Favorites (${favorites.length})`}  </h1>
       </div>
       <div className="flex flex-col items-center">
         {loading ? (
