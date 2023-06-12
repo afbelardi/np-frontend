@@ -65,10 +65,11 @@ export default function Login() {
                 Password
               </label>
               <input
-                className="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                className={`${errorMessage ? 'border-red-500' : 'border-gray-300'} w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
                 ref={password}
                 type="password"
                 placeholder="******************"
+                onFocus={(e) => (e.target.value = '')}
               />
               {/* <p class="text-red-500 text-xs italic">Please choose a password.</p> */}
             </div>
