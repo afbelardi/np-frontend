@@ -26,7 +26,9 @@ export default function Search() {
 
   
   useEffect(() => {
-    if (!isLoggedIn) {
+    const url = new URL(window.location.href);
+    const toastValue = url.searchParams.get("toast")
+    if (!isLoggedIn && !toastValue) {
       router.push("/login");
     }
   }, [isLoggedIn]);

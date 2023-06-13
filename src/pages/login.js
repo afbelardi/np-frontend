@@ -5,15 +5,15 @@ import Link from "next/link";
 import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
-import styles from "../styles/login.module.css";
 import BASE_URL from "../../utils/baseUrl";
+import { Toaster, toast } from 'react-hot-toast'
 
 export default function Login() {
   const router = useRouter();
   const email = useRef(null);
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState(false);
-
+  const [toastMessage, setToastMessage] = useState('');
   const { setIsLoggedIn, isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
@@ -31,7 +31,17 @@ export default function Login() {
         clearTimeout(timeoutId)
       }
     }
-  }, [errorMessage])
+  }, [errorMessage]);
+
+
+  useEffect(() => {
+    const toastValue = router.query.toast;
+
+    if (toastValue === 'success') {
+      setToastMessage('Logout Successful')
+    }
+  }, [router.query.toast]);
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -57,6 +67,13 @@ export default function Login() {
     <>
       <Header />
       <Navbar />
+      <Toaster />
+      {toastMessage && (
+        <div>
+          <h2>{toastMessage}</h2>
+        </div>
+      )}
+
       <div className="flex justify-center mt-40">
         <div className="w-full max-w-xs">
           <form 
