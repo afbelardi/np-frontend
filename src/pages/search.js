@@ -17,6 +17,8 @@ export default function Search() {
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
   const inputRef = useRef(null);
+  const [numResults, setNumResults] = useState(5);
+
  
   const { isLoggedIn } = useContext(AuthContext);
 
@@ -64,10 +66,15 @@ export default function Search() {
       const data = response.data;
       setParks(data.data);
       setLoading(false);
+      setNumResults(5);
     } catch (error) {
       console.error(error);
     }
   };
+
+  const handleShowMore = () => {
+    setNumResults(numResults + 5)
+  }
 
   return (
     <>
@@ -98,7 +105,8 @@ export default function Search() {
             <Skeleton />
           </>
         ) : (
-          Object.keys(parks).map((index) => (
+          Object.keys(parks).slice(0, numResults)
+          .map((index) => (
             <Card
               key={index}
               fullName={parks[index].fullName}
@@ -107,6 +115,14 @@ export default function Search() {
               parkId={parks[index].parkCode}
             />
           ))
+        )}
+        {Object.keys(parks).length > numResults && (
+          <button
+            className="px-4 py-2 mt-4 mb-4 text-sm font-medium text-gray-400 bg-gray-800 border border-gray-600 rounded-lg hover:text-white hover:bg-gray-700"
+            onClick={handleShowMore}
+          >
+            Show More
+          </button>
         )}
       </div>
     </>
