@@ -10,7 +10,7 @@ import newStyles from "../../styles/activities.module.css";
 import MapLocator from "../../components/MapLocator";
 import Directions from "../../components/Directions";
 import Activities from "../../components/Activities";
-import Skeleton from "../components/Skeleton";
+import Skeleton from "../../components/Skeleton";
 
 export default function ParkDetails({ park }) {
   const { isLoggedIn } = useContext(AuthContext);
