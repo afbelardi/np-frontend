@@ -6,6 +6,7 @@ import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 import styles from "../styles/login.module.css";
+import BASE_URL from "../../utils/baseUrl";
 
 export default function Login() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/users/login",
+        `${BASE_URL}/api/users/login`,
         {
           email: email.current.value,
           password: password.current.value,

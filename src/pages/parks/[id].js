@@ -11,6 +11,7 @@ import MapLocator from "../../components/MapLocator";
 import Directions from "../../components/Directions";
 import Activities from "../../components/Activities";
 import Skeleton from "../../components/Skeleton";
+import BASE_URL from "../../../utils/baseUrl";
 
 export default function ParkDetails({ park }) {
   const { isLoggedIn } = useContext(AuthContext);
@@ -87,7 +88,7 @@ export default function ParkDetails({ park }) {
 export async function getServerSideProps(context) {
   const { id } = context.query;
   const res = await axios.get(
-    `http://localhost:8000/api/nationalpark/park/${id}`
+    `${BASE_URL}/api/nationalpark/park/${id}`
   );
   const park = await res.data.data[0];
   return {
