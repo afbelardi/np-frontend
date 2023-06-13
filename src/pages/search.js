@@ -6,8 +6,8 @@ import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Header from "../components/Header";
-import { Card } from "../components/Card";
-import { Skeleton } from "../components/Skeleton";
+import  Card  from "../components/Card";
+import  Skeleton  from "../components/Skeleton";
 
 
 
@@ -34,13 +34,13 @@ export default function Search() {
     (async () => {
       try {
         const response1 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/park/mora"
+          "http://localhost:8000/api/nationalpark/park/mora"
         );
         const data1 = response1.data.data[0];
         
 
         const response2 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/park/yose"
+          "http://localhost:8000/api/nationalpark/park/yose"
         );
         const data2 = response2.data.data[0];
 

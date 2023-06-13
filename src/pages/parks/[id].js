@@ -87,7 +87,7 @@ export default function ParkDetails({ park }) {
 export async function getServerSideProps(context) {
   const { id } = context.query;
   const res = await axios.get(
-    `https://np-backend.herokuapp.com/api/nationalpark/park/${id}`
+    `http://localhost:8000/api/nationalpark/park/${id}`
   );
   const park = await res.data.data[0];
   return {
