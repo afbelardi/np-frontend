@@ -2,12 +2,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import jwt, { decode } from "jsonwebtoken";
 import BASE_URL from "./utils/baseUrl";
+import { useRouter } from "next/router";
 
 export const AuthContext = createContext({});
 
-// export function useAuth() {
-//     return useContext(AuthContext);
-// }
+
 
 export const AuthProvider = ({ children }) => {
     let decodedToken = null;
@@ -17,6 +16,7 @@ export const AuthProvider = ({ children }) => {
         decodedToken = token ? jwt.decode(token) : null;
       }
     
+    const router = useRouter();
     const [isLoggedIn, setIsLoggedIn] = useState(!!decodedToken);
     const [user, setUser] = useState(null);
     // const [favorites, setFavorites] = useState([]);
@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
     
 
     useEffect(() => {
-    
         if (userId) {
             (async () => {
                 try {
@@ -46,7 +45,8 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         localStorage.removeItem('token');
         setIsLoggedIn(false);
-        setUser(null)
+        setUser(null);
+        router.push('/login?toast=success');
     }
 
     const value = {
