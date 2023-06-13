@@ -61,7 +61,7 @@ export default function Search() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/nationalpark/apikey/${inputRef.current.value}`
+        `https://np-backend.herokuapp.com/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
       setParks(data.data);
