@@ -1,4 +1,4 @@
-export const Skeleton = () => {
+export default function Skeleton () {
     return (
       <div
         role="status"

@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import Header from "../components/Header";
-import { Card } from '../components/Card'; 
-import { Skeleton } from "../components/Skeleton";
+import Card from '../components/Card'; 
+import Skeleton  from "../components/Skeleton";
+import BASE_URL from "../../utils/baseUrl";
 
 export default function Favorites() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function Favorites() {
 
  useEffect(() => {
   (async () => {
-    const response = await axios.get(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`, {
+    const response = await axios.get(`${BASE_URL}/api/users/favorites/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

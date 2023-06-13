@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import jwt, { decode } from "jsonwebtoken";
+import BASE_URL from "./utils/baseUrl";
 
 export const AuthContext = createContext({});
 
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }) => {
         if (userId) {
             (async () => {
                 try {
-                    const response =  await axios.get(`https://np-backend.herokuapp.com/api/users/${userId}`, {
+                    const response =  await axios.get(`${BASE_URL}/api/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }   

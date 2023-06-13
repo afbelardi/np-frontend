@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { FaHeart } from "react-icons/fa";
 import { AuthContext } from "../../authContext";
 import axios from 'axios';
+import BASE_URL from '../../utils/baseUrl';
 
-export const Card = ({ fullName, image, description, parkId }) => {
+export default function Card ({ fullName, image, description, parkId }) {
 
 
 
@@ -15,7 +16,7 @@ export const Card = ({ fullName, image, description, parkId }) => {
     useEffect(() => {
         const checkFavoriteStatus = async () => {
             try {
-                const response = await axios.get(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`, {
+                const response = await axios.get(`${BASE_URL}/api/users/favorites/${userId}`, {
                     headers: {
                         'Authorization' : `Bearer ${token}`
                     }
@@ -36,7 +37,7 @@ export const Card = ({ fullName, image, description, parkId }) => {
     const submitFavorite = async () => {
         try{   
             if (heartSelected === false) {
-                const response = await axios.put(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`,
+                const response = await axios.put(`${BASE_URL}/api/users/favorites/${userId}`,
                 {
                     parkCode: parkId
                 },
@@ -50,7 +51,7 @@ export const Card = ({ fullName, image, description, parkId }) => {
             } 
             
             if (heartSelected === true) {
-                const response = await axios.delete(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`, {
+                const response = await axios.delete(`${BASE_URL}/api/users/favorites/${userId}`, {
                     headers: {
                       Authorization: `Bearer ${token}`
                     },

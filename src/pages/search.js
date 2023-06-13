@@ -6,8 +6,9 @@ import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Header from "../components/Header";
-import { Card } from "../components/Card";
-import { Skeleton } from "../components/Skeleton";
+import  Card  from "../components/Card";
+import  Skeleton  from "../components/Skeleton";
+import BASE_URL from "../../utils/baseUrl";
 
 
 
@@ -34,13 +35,13 @@ export default function Search() {
     (async () => {
       try {
         const response1 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/park/mora"
+          `${BASE_URL}/api/nationalpark/park/mora`
         );
         const data1 = response1.data.data[0];
         
 
         const response2 = await axios.get(
-          "https://np-backend.herokuapp.com/api/nationalpark/park/yose"
+          `${BASE_URL}/api/nationalpark/park/yose`
         );
         const data2 = response2.data.data[0];
 
@@ -61,7 +62,7 @@ export default function Search() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://np-backend.herokuapp.com/api/nationalpark/apikey/${inputRef.current.value}`
+        `${BASE_URL}/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
       setParks(data.data);
