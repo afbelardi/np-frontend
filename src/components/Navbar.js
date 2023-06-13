@@ -74,9 +74,9 @@ export default function Navbar() {
                 </li>
                 <li>
                   {isLoggedIn ? (
-                    <h2 className="font-semibold text-white ">
+                    <span className="font-semibold text-white pointer-events-none ">
                       {welcomeMessage}
-                    </h2>
+                    </span>
                   ) : (
                     <Link className="text-white" href="/signup">
                       Sign Up
