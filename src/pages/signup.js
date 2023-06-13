@@ -24,7 +24,7 @@ export default function SignUp() {
   const handleSignup = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/users/signup",
+        "http://:8000/api/users/signup",
         {
           username: username.current.value,
           password: password.current.value,

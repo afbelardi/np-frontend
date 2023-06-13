@@ -15,7 +15,7 @@ export const Card = ({ fullName, image, description, parkId }) => {
     useEffect(() => {
         const checkFavoriteStatus = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/users/favorites/${userId}`, {
+                const response = await axios.get(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`, {
                     headers: {
                         'Authorization' : `Bearer ${token}`
                     }
@@ -36,7 +36,7 @@ export const Card = ({ fullName, image, description, parkId }) => {
     const submitFavorite = async () => {
         try{   
             if (heartSelected === false) {
-                const response = await axios.put(`http://localhost:8000/api/users/favorites/${userId}`,
+                const response = await axios.put(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`,
                 {
                     parkCode: parkId
                 },
@@ -50,7 +50,7 @@ export const Card = ({ fullName, image, description, parkId }) => {
             } 
             
             if (heartSelected === true) {
-                const response = await axios.delete(`http://localhost:8000/api/users/favorites/${userId}`, {
+                const response = await axios.delete(`https://np-backend.herokuapp.com/api/users/favorites/${userId}`, {
                     headers: {
                       Authorization: `Bearer ${token}`
                     },
@@ -65,7 +65,6 @@ export const Card = ({ fullName, image, description, parkId }) => {
         } catch(error) {
             console.error(error)
         }
-    
 }
     
     return (
