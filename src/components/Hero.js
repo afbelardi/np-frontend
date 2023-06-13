@@ -18,28 +18,28 @@ export default function Hero() {
         <Link href="/search">
           <button className="mt-3 btn glass">Get Started</button>
         </Link>
-        <ul className="flex flex-col items-center w-full gap-2 mt-10">
+        <ul className="flex flex-col items-center w-full gap-2 mt-10 font-monserrat">
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-7 h-7 `} />
-            <p className={`${styles.listItem} text-sm font-medium`}>
+            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
+            <p className={`${styles.listItem} text-md font-semibold`}>
               Search for National Park sites by state
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-7 h-7 `} />
-            <p className={`${styles.listItem} text-sm font-medium`}>
+            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
+            <p className={`${styles.listItem} text-md font-semibold`}>
               Get information about each location
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-7 h-7 `} />
-            <p className={`${styles.listItem} text-sm font-medium`}>
+            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
+            <p className={`${styles.listItem} text-md font-semibold`}>
               Create a list of favorites
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-7 h-7 `} />
-            <p className={`${styles.listItem} text-sm font-medium`}>
+            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
+            <p className={`${styles.listItem} text-md font-semibold`}>
               Plan your next trip
             </p>
           </li>
@@ -49,7 +49,7 @@ export default function Hero() {
           className={`${styles.intro} w-80 h-80`}
         />
         <section className="flex flex-col items-center mb-4">
-          <h1 className="text-xl font-semibold text-center text-white font-monserrat">
+          <h1 className="pl-4 pr-4 text-xl font-semibold text-center text-white font-monserrat">
             Created with official data from the National Park Service
           </h1>
           <img src="/Arrowhead.png" className="w-20 mt-4 h-22" />
