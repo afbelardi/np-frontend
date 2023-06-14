@@ -13,6 +13,8 @@ export default function Favorites() {
   const { isLoggedIn, userId, token } = useContext(AuthContext);
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [numResults, setNumResults] = useState(5);
+
   
 
  useEffect(() => {
@@ -29,11 +31,17 @@ export default function Favorites() {
  }, [userId, favorites])
 
 
-  useEffect(() => {
-    if (!isLoggedIn) {
-      router.push("/login");
-    }
-  });
+ useEffect(() => {
+  const url = new URL(window.location.href);
+  const toastValue = url.searchParams.get("toast")
+  if (!isLoggedIn && !toastValue) {
+    router.push("/login");
+  }
+}, [isLoggedIn]);
+
+const handleShowMore = () => {
+  setNumResults(numResults + 5)
+}
 
   return (
     <>
@@ -49,7 +57,8 @@ export default function Favorites() {
             <Skeleton />
           </>
         ) : (
-          Object.keys(favorites).map((index) => (
+          Object.keys(favorites).slice(0, numResults)
+          .map((index) => (
             <Card
               key={index}
               fullName={favorites[index].fullName}
@@ -58,6 +67,14 @@ export default function Favorites() {
               parkId={favorites[index].parkCode}
             />
           ))
+        )}
+         {Object.keys(favorites).length > numResults && (
+          <button
+            className="px-4 py-2 mt-4 mb-4 text-sm font-medium text-gray-400 bg-gray-800 border border-gray-600 rounded-lg hover:text-white hover:bg-gray-700"
+            onClick={handleShowMore}
+          >
+            Show More
+          </button>
         )}
       </div>
     </>

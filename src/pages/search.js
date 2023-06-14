@@ -69,7 +69,6 @@ export default function Search() {
       const data = response.data;
       setParks(data.data);
       setLoading(false);
-      setNumResults(5);
     } catch (error) {
       console.error(error);
     }
