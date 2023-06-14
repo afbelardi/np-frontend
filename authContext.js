@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
     const router = useRouter();
     const [isLoggedIn, setIsLoggedIn] = useState(!!decodedToken);
     const [user, setUser] = useState(null);
-    // const [favorites, setFavorites] = useState([]);
     const userId = decodedToken ? decodedToken.userId : null;
     
 
@@ -34,7 +33,6 @@ export const AuthProvider = ({ children }) => {
                 })
                 const data = await response.data;
                 setUser(data);
-                // setFavorites(data.favorites);
                 } catch (error) {
                     console.error(error)
                 }

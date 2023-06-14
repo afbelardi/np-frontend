@@ -6,7 +6,7 @@ import { AuthContext } from "../../authContext";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 import BASE_URL from "../../utils/baseUrl";
-import { Toaster, toast } from 'react-hot-toast'
+import { toast, Toaster, ToastBar } from 'react-hot-toast';
 
 export default function Login() {
   const router = useRouter();
@@ -36,11 +36,11 @@ export default function Login() {
 
   useEffect(() => {
     const toastValue = router.query.toast;
-
     if (toastValue === 'success') {
-      setToastMessage('Logout Successful')
+      toast.success('Logout Successful')
     }
   }, [router.query.toast]);
+
 
 
   const handleLogin = async (e) => {
@@ -63,18 +63,15 @@ export default function Login() {
       setErrorMessage(true);
     }
   };
+
+
+  
   return (
     <>
       <Header />
       <Navbar />
-      <Toaster />
-      {toastMessage && (
-        <div>
-          <h2>{toastMessage}</h2>
-        </div>
-      )}
-
       <div className="flex justify-center mt-40">
+        <Toaster></Toaster>
         <div className="w-full max-w-xs">
           <form 
           className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md"

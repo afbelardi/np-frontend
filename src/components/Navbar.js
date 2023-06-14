@@ -44,12 +44,14 @@ export default function Navbar() {
                 tabIndex={0}
                 className="p-2 mt-3 shadow bg-navbar-blue menu menu-compact dropdown-content rounded-box w-52"
               >
-                <li>
+                {isLoggedIn ? (
+                  <li>
                   <Link href="/favorites" className="text-white">
                     Favorites
                     <span className="badge">New</span>
                   </Link>
                 </li>
+              ) : ''}
                 <li>
                   {isLoggedIn ? (
                     <Link href="/search" className="text-white">
