@@ -6,14 +6,14 @@ export default function Hero() {
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full mt-12 overlow-x-hidden">
-        <h1 className="p-4 text-5xl font-bold text-center text-white font-monserrat">
-          Plan your next
+        <h1 className="p-4 text-4xl font-bold text-center text-white font-monserrat">
+          Unleash your inner adventurer and discover
           <p
             className={`${styles.intro} inline-block p-1 mx-2 text-transparent bg-gradient-to-r from-boston-blue-400 via-boston-blue-500 to-boston-blue-600 bg-clip-text`}
           >
-            outdoor
+            breathtaking
           </p>
-          adventure
+          national parks with our finder.
         </h1>
         <Link href="/search">
           <button className="mt-3 btn glass">Get Started</button>

@@ -1,10 +1,10 @@
 import Navbar from "../components/Navbar";
 import { useEffect, useRef, useContext } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../authContext";
 import axios from "axios";
 import Header from "../components/Header";
+import BASE_URL from "../../utils/baseUrl";
 
 export default function SignUp() {
   const router = useRouter();
@@ -24,7 +24,7 @@ export default function SignUp() {
   const handleSignup = async () => {
     try {
       const response = await axios.post(
-        "http://:8000/api/users/signup",
+        `${BASE_URL}/api/users/signup`,
         {
           username: username.current.value,
           password: password.current.value,

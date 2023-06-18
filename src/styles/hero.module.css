@@ -16,6 +16,7 @@
 
 
 
+
 /* KEYFRAMES */
 
 @keyframes show {
@@ -26,6 +27,7 @@
       opacity: 1
   }
 }
+
 
 @keyframes slideFromLeft {
     0% {
