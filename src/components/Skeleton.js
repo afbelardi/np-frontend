@@ -2,9 +2,9 @@ export default function Skeleton () {
     return (
       <div
         role="status"
-        className="max-w-sm p-4 mb-5 border rounded shadow border-slate-500 animate-pulse md:p-6"
+        className="w-11/12 p-4 mb-5 border rounded shadow border-slate-500 animate-pulse md:p-6"
       >
-        <div className="flex items-center justify-center h-48 mb-4 rounded bg-slate-500">
+        <div className="flex items-center justify-center h-56 mb-4 rounded bg-slate-500">
           <svg
             className="w-12 h-12 text-gray-600"
             xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ export default function Skeleton () {
         <div className="h-2.5  rounded-full bg-slate-500 w-48 mb-4"></div>
         <div className="h-2  rounded-full bg-slate-500 mb-2.5"></div>
         <div className="h-2  rounded-full bg-slate-500 mb-2.5"></div>
-        <div className="h-2 bg-gray-700 rounded-full"></div>
+        <div className="h-2 rounded-full bg-slate-500"></div>
         <div className="flex items-center mt-4 space-x-3">
           <svg
             className="text-slate-500 w-14 h-14"
