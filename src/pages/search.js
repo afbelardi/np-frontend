@@ -9,7 +9,7 @@ import Header from "../components/Header";
 import  Card  from "../components/Card";
 import  Skeleton  from "../components/Skeleton";
 import BASE_URL from "../../utils/baseUrl";
-
+import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
 
 
@@ -83,21 +83,24 @@ export default function Search() {
       <Header />
       <Navbar />
       <div className="flex flex-col items-center h-56 mt-16 text-center">
-        <h1 className="pl-4 pr-4 tracking-[1px] mb-4 text-2xl font-semibold text-white font-monserrat">
+        <h1 className="pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-medium text-white font-monserrat">
           Search By State
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <input
-          placeholder="Washington"
-          ref={inputRef}
-          className={`${styles.input} bg-white`}
-        />
-        <button
-          type="submit"
-          className="py-2.5 w-1/2 px-5 mt-4 text-sm font-medium  rounded-lg border bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
-        >
-          Submit
-        </button>
+          <div className={styles.inputContainer}>
+            <input
+              placeholder="Washington"
+              ref={inputRef}
+              className={`${styles.input} bg-white`}
+            />
+            <HiOutlineMagnifyingGlass className={styles.icon}/>
+            <button
+              type="submit"
+              className="py-2.5 w-1/2 px-5 mt-4 text-sm font-medium  rounded-lg border bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
       <div className="flex flex-col items-center">

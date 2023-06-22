@@ -1,13 +1,24 @@
 
-
+.inputContainer {
+    position: relative;
+}
 .input {
     border-radius: 4px;
-    height: 35px;
+    height: 40px;
     padding: 5px 20px;
     color: rgb(86, 78, 78);
     font: aeonik-bold;
     font-weight: 400;
     text-align: center
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 7px;
+    left: 55px;
+    color: gray;
 }
 
 .input:focus {
