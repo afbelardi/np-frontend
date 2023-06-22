@@ -24,6 +24,7 @@ export default function Card ({ fullName, image, description, parkId }) {
                 const favorites = response.data
                 const isFavorite = favorites.some(favorite => favorite.parkCode === parkId);
                 setHeartSelected(isFavorite)
+                
             } catch(error) {
                 console.error(error)
             }
@@ -35,7 +36,7 @@ export default function Card ({ fullName, image, description, parkId }) {
 
     
     const submitFavorite = async () => {
-        try{   
+        try {  
             if (heartSelected === false) {
                 const response = await axios.put(`${BASE_URL}/api/users/favorites/${userId}`,
                 {
@@ -48,9 +49,7 @@ export default function Card ({ fullName, image, description, parkId }) {
                 });
                 const data = await response.data;
                 setHeartSelected(true);
-            } 
-            
-            if (heartSelected === true) {
+            } else {
                 const response = await axios.delete(`${BASE_URL}/api/users/favorites/${userId}`, {
                     headers: {
                       Authorization: `Bearer ${token}`

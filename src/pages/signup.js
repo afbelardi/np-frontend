@@ -34,7 +34,7 @@ export default function SignUp() {
       );
       const data = await response.data;
       if (data.message === "User created successfully") {
-        router.replace("/login");
+        router.push("/login?toast=signup-success");
       }
     } catch (error) {
       console.error(error);

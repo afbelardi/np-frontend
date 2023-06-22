@@ -38,7 +38,9 @@ export default function Login() {
     const toastValue = router.query.toast;
     if (toastValue === 'success') {
       toast.success('Logout Successful')
-    }
+    } else if (toastValue === 'signup-success') {
+      toast.success('Sign up successful. Please sign in')
+    } 
   }, [router.query.toast]);
 
 
