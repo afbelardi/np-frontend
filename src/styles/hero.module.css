@@ -4,9 +4,12 @@
     animation: show 2s ease-in;
   }
 
-.clipboard {
+.mountain {
     animation: slideFromLeft 1s ease-in;
     color: white;
+    width: 15%;
+    margin-right: 15px;
+    margin-bottom: 4px;
 }
 
 .listItem {

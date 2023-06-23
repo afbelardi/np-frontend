@@ -18,28 +18,28 @@ export default function Hero() {
         <Link href="/search">
           <button className="mt-3 btn glass">Get Started</button>
         </Link>
-        <ul className="flex flex-col items-center w-full gap-2 mt-10 font-monserrat">
+        <ul className="flex flex-col items-center w-full gap-2 mt-10 font-aeonik-light">
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
-            <p className={`${styles.listItem} text-md font-semibold`}>
+            <img  className={styles.mountain}src="/mt-checklist.png" />
+            <p className={`${styles.listItem} text-lg font-semibold`}>
               Search for National Park sites by state
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
-            <p className={`${styles.listItem} text-md font-semibold`}>
+            <img className={styles.mountain} src="/mt-checklist.png" />
+            <p className={`${styles.listItem} text-lg font-semibold`}>
               Get information about each location
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
-            <p className={`${styles.listItem} text-md font-semibold`}>
+            <img className={styles.mountain} src="/mt-checklist.png" />
+            <p className={`${styles.listItem} text-lg  font-semibold`}>
               Create a list of favorites
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
-            <TbCheckupList className={`${styles.clipboard} w-9 h-9 `} />
-            <p className={`${styles.listItem} text-md font-semibold`}>
+            <img className={styles.mountain} src="/mt-checklist.png" />
+            <p className={`${styles.listItem} text-lg font-semibold`}>
               Plan your next trip
             </p>
           </li>
