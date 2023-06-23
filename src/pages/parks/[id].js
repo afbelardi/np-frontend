@@ -48,15 +48,15 @@ export default function ParkDetails({ park }) {
         <Skeleton />
       ) : (
         <div className="flex flex-col h-full">
-          <h1 className="mt-10 mb-5 ml-6 text-2xl font-bold text-left text-white font-monserrat">
+          <h1 className="pl-2 pr-2 mt-10 mb-5 text-3xl font-extrabold text-center text-white font-inter">
             {park.fullName}
           </h1>
           <div className="flex justify-center w-full mb-6">
-            <section className={` ${newStyles.floatingDiv} w-11/12 rounded-md bg-navbar-blue/90 backdrop-blur-md`}>
+            <div className={` ${newStyles.floatingDiv} bg-[url('/background.png')] flex justify-center rounded-lg w-11/12  h-auto overflow-hidden `}>
               <h2 className="p-6 font-normal leading-7 text-center text-md text-off-white font-aeonik">
                 {park.description}
               </h2>
-            </section>
+            </div>
           </div>
           <div className="flex justify-center w-full">
             <section
