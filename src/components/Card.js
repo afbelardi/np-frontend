@@ -68,7 +68,7 @@ export default function Card ({ fullName, image, description, parkId }) {
 }
     
     return (
-      <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow">
+      <div className="max-w-lg mb-5 ml-3 mr-3 bg-gray-800 border-gray-700 rounded-lg shadow lg:min-h-[600px]">
           <img className={`${styles.parkImage} rounded-t-lg`} src={image} />
         <div className="p-5">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">

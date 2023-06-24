@@ -103,7 +103,7 @@ export default function Search() {
           </div>
         </form>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center lg:grid lg:grid-cols-3 lg:gap-4">
         {loading ? (
           <>
             <Skeleton />
