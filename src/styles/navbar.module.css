@@ -13,3 +13,7 @@
     align-items: center;
 }
 
+.navFont {
+    font-family: 'Playfair Display';
+    font-size: 23px;
+}

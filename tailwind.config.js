@@ -14,12 +14,13 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        monserrat: ['Montserrat', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        'monserrat': ['Montserrat', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        playfair: ['Playfair Display', 'sans-serif'],
         'aeonik-bold': ['Aeonik Bold', 'sans-serif'],
         'aeonik-regular': ['Aeonik Regular', 'sans-serif'],
         'aeonik-bold-italic': ['Aeonik Bold-Italic', 'sans-serif'],
-        cabin: ['Cabin', 'sans-serif']
+        'cabin': ['Cabin', 'sans-serif']
       },
       backgroundImage: {
         'hero-image': "url('/forwebsite.jpg')"

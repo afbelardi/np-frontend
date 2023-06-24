@@ -83,7 +83,7 @@ export default function Search() {
       <Header />
       <Navbar />
       <div className="flex flex-col items-center h-56 mt-16 text-center">
-        <h1 className="pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-medium text-white font-monserrat">
+        <h1 className="pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-semibold text-white font-monserrat">
           Search By State
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col items-center">

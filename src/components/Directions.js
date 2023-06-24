@@ -11,9 +11,9 @@ export default function Directions({ park }) {
             <h1 className="text-2xl font-bold text-white font-monserrat">Directions</h1>     
         </section>
         <main className=" bg-[url('/background.png')] flex flex-col items-center">
-            <p className="p-3 mb-2 text-lg font-bold leading-7 text-center text-off-white font-aeonik-bold">{park.directionsInfo}</p>
+            <p className="p-3 mt-4 mb-2 text-lg font-light leading-7 text-center text-off-white font-monserrat">{park.directionsInfo}</p>
             <Link href={park.directionsUrl} target="_blank">
-              <button className="mb-4 btn glass">Full Directions</button>
+              <button className="mb-6 btn glass">Full Directions</button>
             </Link>
         </main>
     </div>

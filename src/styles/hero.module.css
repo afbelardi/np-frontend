@@ -7,7 +7,7 @@
 .mountain {
     animation: slideFromLeft 1s ease-in;
     color: white;
-    width: 15%;
+    width: 12%;
     margin-right: 15px;
     margin-bottom: 4px;
 }
@@ -15,6 +15,7 @@
 .listItem {
     animation: slideFromRight 1s ease-in;
     color: white;
+ 
 }
 
 

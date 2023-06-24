@@ -23,7 +23,7 @@ export default function Navbar() {
       <div id={styles.navbar_custom} className="bg-base-100">
         <div className="flex-1">
           <Link href="/">
-            <button className="text-xl text-white normal-case btn btn-ghost">
+            <button className={` ${styles.navFont} text-xl text-white normal-case btn btn-ghost`}>
               National Park Finder
             </button>
           </Link>
