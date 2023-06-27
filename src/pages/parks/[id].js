@@ -48,11 +48,11 @@ export default function ParkDetails({ park }) {
         <Skeleton />
       ) : (
         <div className="flex flex-col h-full">
-          <h1 className="pl-2 pr-2 mt-10 text-3xl font-bold tracking-tighter text-center text-white font-monserrat ">
+          <h1 className="pl-4 pr-4 mt-10 text-3xl font-bold tracking-tighter text-center text-white font-monserrat ">
             {park.fullName}
           </h1>
           <div className="flex justify-center w-full mb-6">
-              <h2 className="p-6 font-medium leading-7 text-center text-md text-off-white font-monserrat ">
+              <h2 className="p-6 font-light leading-7 text-center text-md text-off-white font-monserrat ">
                 {park.description}
               </h2>
           </div>
