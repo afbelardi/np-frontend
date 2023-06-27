@@ -78,6 +78,10 @@ export default function Search() {
     setNumResults(numResults + 5)
   }
 
+  const handleShowLess = () => {
+    setNumResults(5)
+  }
+
   return (
     <>
       <Header />
@@ -127,6 +131,14 @@ export default function Search() {
             onClick={handleShowMore}
           >
             Show More
+          </button>
+        )}
+        {Object.keys(parks).length < numResults && (
+          <button
+            className="px-6 py-2 mt-4 mb-4 text-sm font-medium text-gray-400 bg-gray-800 border border-gray-600 rounded-lg hover:text-white hover:bg-gray-700"
+            onClick={handleShowLess}
+          >
+            Show Less
           </button>
         )}
       </div>
