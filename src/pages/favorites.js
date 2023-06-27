@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Card from '../components/Card'; 
 import Skeleton  from "../components/Skeleton";
 import BASE_URL from "../../utils/baseUrl";
+import styles from "../styles/parkdetails.module.css";
 
 export default function Favorites() {
   const router = useRouter();
@@ -48,7 +49,7 @@ const handleShowMore = () => {
       <Header />
       <Navbar />
       <div className="flex justify-center w-full mt-8">
-        <h1 className="text-4xl mb-8 tracking-[2px] font-aeonik-bold text-off-white">{`Favorites (${favorites.length})`}  </h1>
+        <h1 className={`${styles["text-shadow"]} text-4xl mb-8 tracking-[2px] font-semibold font-monserrat text-off-white`}>{`Favorites (${favorites.length})`}  </h1>
       </div>
       <div className="flex flex-col items-center">
         {loading ? (
