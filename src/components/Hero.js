@@ -21,25 +21,25 @@ export default function Hero() {
         <ul className="flex flex-col items-center w-full gap-2 mt-10 font-aeonik-light">
           <li className="flex items-center gap-2 w-72">
             <img  className={styles.mountain}src="/mt-checklist.png" />
-            <p className={`${styles.listItem} text-lg font-medium font-monserrat`}>
+            <p className={`${styles.listItem} text-lg font-normal font-monserrat`}>
               Search for National Park sites by state
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
             <img className={styles.mountain} src="/mt-checklist.png" />
-            <p className={`${styles.listItem} text-lg font-medium font-monserrat`}>
+            <p className={`${styles.listItem} text-lg font-normal font-monserrat`}>
               Get information about each location
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
             <img className={styles.mountain} src="/mt-checklist.png" />
-            <p className={`${styles.listItem} text-lg font-monserrat  font-medium`}>
+            <p className={`${styles.listItem} text-lg font-monserrat  font-normal`}>
               Create a list of favorites
             </p>
           </li>
           <li className="flex items-center gap-2 w-72">
             <img className={styles.mountain} src="/mt-checklist.png" />
-            <p className={`${styles.listItem} text-lg font-medium font-monserrat`}>
+            <p className={`${styles.listItem} text-lg font-normal font-monserrat`}>
               Plan your next trip
             </p>
           </li>
