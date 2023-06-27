@@ -59,7 +59,7 @@ export default function ParkDetails({ park }) {
             <section
               className={`${styles.carouselWrapper} h-500 mb-8 flex justify-center w-full`}
             >
-              <Carousel className={newStyles.floatingDiv}>
+              <Carousel className={styles.floatingDiv}>
                 {park.images.map((index) => (
                   <img
                     key={index}
