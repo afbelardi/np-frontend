@@ -4,19 +4,17 @@ import Link from 'next/link';
 
 export default function Directions({ park }) {
   return (
-    <div className="flex justify-center w-full mb-2">
-    <div className={` ${styles.floatingDiv} flex flex-col items-center justify-center w-11/12 mb-4 rounded-md shadow-xl bg-slate-400/20 backdrop-blur-md`}>
-        <section className="flex items-center justify-center w-full h-16 bg-slate-800 rounded-tr-md rounded-tl-md">
-            <TbMapSearch className="w-8 h-8 mr-2 text-white"/>
-            <h1 className="text-2xl font-bold text-white font-monserrat">Directions</h1>     
+    <div className="flex flex-col items-center justify-center w-full mt-4 mb-10">
+        <section className="flex items-center justify-center">
+            <img src="/map.png" className="w-20 h-20 mr-4" />
+            <h1 className="text-4xl font-medium text-white font-monserrat">Directions</h1>     
         </section>
-        <main className=" bg-[url('/background.png')] flex flex-col items-center">
-            <p className="p-3 mt-4 mb-2 text-lg font-light leading-7 text-center text-off-white font-monserrat">{park.directionsInfo}</p>
+        <main className="flex flex-col items-center">
+            <p className="p-5 mb-2 text-lg font-light leading-7 text-center text-off-white font-monserrat">{park.directionsInfo}</p>
             <Link href={park.directionsUrl} target="_blank">
               <button className="mb-6 btn glass">Full Directions</button>
             </Link>
         </main>
-    </div>
     </div>
   )
 }
