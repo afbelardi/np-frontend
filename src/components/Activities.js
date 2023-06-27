@@ -11,6 +11,10 @@ export default function Activities({ park }) {
         setNumResults(numResults + 5);
     }
 
+    const handleShowLess = () => {
+        setNumResults(5);
+    }
+
   return (
     <div className="flex justify-center w-full mb-8">
         <div className={`flex flex-col items-center justify-center w-full mb-4`}>
@@ -37,6 +41,14 @@ export default function Activities({ park }) {
             onClick={handleShowMore}
           >
             Show More
+          </button>
+        )}
+        {Object.keys(park.activities).length <= numResults  && (
+          <button
+            className="px-6 py-2 mt-4 mb-4 text-sm font-medium text-gray-400 bg-gray-800 border border-gray-600 rounded-lg hover:text-white hover:bg-gray-700"
+            onClick={handleShowLess}
+          >
+            Show Less
           </button>
         )}
         </div>
