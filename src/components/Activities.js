@@ -1,6 +1,6 @@
 import { FiActivity } from 'react-icons/fi';
 import { BsArrowReturnRight } from 'react-icons/bs';
-import styles from '../styles/activities.module.css';
+
 
 export default function Activities({ park }) {
   return (

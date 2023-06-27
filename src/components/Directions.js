@@ -1,5 +1,3 @@
-import { TbMapSearch } from "react-icons/tb";
-import styles from '../styles/activities.module.css';
 import styles2 from '../styles/parkdetails.module.css';
 import Link from 'next/link';
 

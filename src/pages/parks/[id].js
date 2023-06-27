@@ -6,7 +6,6 @@ import axios from "axios";
 import Header from "../../components/Header";
 import { Carousel } from "flowbite-react";
 import styles from "../../styles/parkdetails.module.css";
-import newStyles from "../../styles/activities.module.css";
 import MapLocator from "../../components/MapLocator";
 import Directions from "../../components/Directions";
 import Activities from "../../components/Activities";
