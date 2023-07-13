@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsArrowReturnRight } from "react-icons/bs";
 import styles from "../styles/parkdetails.module.css";
-
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 export default function Activities({ park }) {
 
@@ -28,7 +28,7 @@ export default function Activities({ park }) {
                     return (
                         <>
                         <li className={`${styles["text-shadow"]} flex items-center text-lg font-light text-white font-monserrat`}>
-                            <BsArrowReturnRight className="mr-2" />
+                            <BsFillArrowRightCircleFill className="mr-2" />
                                 {activity.name}
                             </li>
                             </>
