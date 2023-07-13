@@ -12,6 +12,7 @@ import Activities from "../../components/Activities";
 import Skeleton from "../../components/Skeleton";
 import BASE_URL from "../../../utils/baseUrl";
 
+
 export default function ParkDetails({ park }) {
   const { isLoggedIn } = useContext(AuthContext);
   const router = useRouter();

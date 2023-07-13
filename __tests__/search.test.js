@@ -4,8 +4,11 @@
 // // import { useRouter } from "next/router";
 // import Search from "../src/pages/search";
 
-// jest.mock("axios");
-// jest.mock("next/router");
+
+// jest.mock('next/router', () => ({
+//   __esModule: true,
+//   useRouter: jest.fn()
+
 
 // describe("Search component", () => {
 //   beforeEach(() => {

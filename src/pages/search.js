@@ -18,11 +18,10 @@ export default function Search() {
   const [parks, setParks] = useState([]);
   const [loading, setLoading] = useState(true);
   const inputRef = useRef(null);
-  const [numResults, setNumResults] = useState(5);
+  const [numResults, setNumResults] = useState(3);
 
  
   const { isLoggedIn } = useContext(AuthContext);
-
 
   
   useEffect(() => {
@@ -75,11 +74,11 @@ export default function Search() {
   };
 
   const handleShowMore = () => {
-    setNumResults(numResults + 5)
+    setNumResults(numResults + 3);
   }
 
   const handleShowLess = () => {
-    setNumResults(5)
+    setNumResults(3);
   }
 
   return (
@@ -133,7 +132,7 @@ export default function Search() {
             Show More
           </button>
         )}
-        {Object.keys(parks).length < numResults && (
+        {numResults > 3 && numResults >= Object.keys(parks).length && (
           <button
             className="px-6 py-2 mt-4 mb-4 text-sm font-medium text-gray-400 bg-gray-800 border border-gray-600 rounded-lg hover:text-white hover:bg-gray-700"
             onClick={handleShowLess}
