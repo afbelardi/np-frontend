@@ -9,8 +9,6 @@ import styles2 from "../styles/parkdetails.module.css";
 
 export default function Card ({ fullName, image, description, parkId }) {
 
-
-
     const [heartSelected, setHeartSelected] = useState(false);
     const { userId, token } = useContext(AuthContext);
     
