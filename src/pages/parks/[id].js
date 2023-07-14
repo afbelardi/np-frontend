@@ -75,6 +75,7 @@ export default function ParkDetails({ park }) {
           </div>
           <Directions park={park} />
           <Activities park={park} />
+          <FeesTable park={park} />
           <div className="flex justify-center">
             <MapLocator center={center} />
           </div>
