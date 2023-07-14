@@ -11,6 +11,7 @@ import Directions from "../../components/Directions";
 import Activities from "../../components/Activities";
 import Skeleton from "../../components/Skeleton";
 import BASE_URL from "../../../utils/baseUrl";
+import FeesTable from "../../components/FeesTable";
 
 
 export default function ParkDetails({ park }) {

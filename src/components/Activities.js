@@ -24,14 +24,12 @@ export default function Activities({ park }) {
             </section>
             <ul className="flex flex-col items-center p-4">
                 {park.activities.slice(0, numResults)
-                .map((activity) => {
+                .map((activity, i) => {
                     return (
-                        <>
-                        <li className={`${styles["text-shadow"]} flex items-center text-lg font-light text-white font-monserrat`}>
+                        <li key={i} className={`${styles["text-shadow"]} flex items-center text-lg font-light text-white font-monserrat`}>
                             <BsFillArrowRightCircleFill className="mr-2" />
                                 {activity.name}
                             </li>
-                            </>
                         )}
                    )}
             </ul>
