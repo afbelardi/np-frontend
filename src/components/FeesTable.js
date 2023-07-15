@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import styles from "../styles/parkdetails.module.css";
 
 export default function FeesTable({ park }) {
 
@@ -16,6 +17,10 @@ export default function FeesTable({ park }) {
   return (
       <>
         <div className="flex flex-col items-center justify-center w-full mb-16" >
+        <section className="flex items-center justify-center w-full mr-4">
+                <img src="/money.png" className="w-24 h-28 "/>
+                <h1 className={`${styles["text-shadow"]} text-3xl font-medium text-white font-monserrat`}>Entrance Fees</h1>     
+            </section>
             <table className="w-3/4 text-sm text-gray-400">
                 <thead className="text-xs text-gray-400 uppercase border-separate rounded-lg bg-navbar-blue">
                     <tr>
