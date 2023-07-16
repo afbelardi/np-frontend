@@ -42,10 +42,10 @@ export default function FeesTable({ park }) {
                                 <th scope="row" class="w-10 font-monserrat pl-6 font-semibold text-white">
                                     {entranceFee.title}
                                 </th>
-                                <td className="px-6 py-4 font-normal font-monserrat">
+                                <td className="py-4 pl-4 font-normal font-monserrat">
                                     {entranceFee.description}
                                 </td>
-                                <td className="px-6 py-4 font-monserrat">
+                                <td className="px-4 py-4 font-monserrat">
                                     ${entranceFee.cost}
                                 </td>
                             </tr>

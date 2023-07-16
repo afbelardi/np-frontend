@@ -12,6 +12,7 @@ import Activities from "../../components/Activities";
 import Skeleton from "../../components/Skeleton";
 import BASE_URL from "../../../utils/baseUrl";
 import FeesTable from "../../components/FeesTable";
+import WeatherInfo from "../../components/WeatherInfo";
 
 
 export default function ParkDetails({ park }) {
@@ -74,6 +75,7 @@ export default function ParkDetails({ park }) {
             </section>
           </div>
           <Directions park={park} />
+          <WeatherInfo park={park} />
           <Activities park={park} />
           <FeesTable park={park} />
           <div className="flex justify-center">
