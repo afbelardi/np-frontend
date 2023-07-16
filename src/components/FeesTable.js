@@ -36,7 +36,7 @@ export default function FeesTable({ park }) {
                     </tr>
                 </thead>
                 <tbody className="">
-                    {park.entranceFees.slice(0, numResults).map(entranceFee => {
+                    {park.entranceFees.concat(park.entrancePasses).slice(0, numResults).map(entranceFee => {
                         return (
                             <tr className="bg-gray-800 border-b border-gray-700">
                                 <th scope="row" class="w-10 font-monserrat pl-6 font-semibold text-white">
