@@ -21,7 +21,7 @@ export default function FeesTable({ park }) {
                 <img src="/money.png" className="w-24 h-28 "/>
                 <h1 className={`${styles["text-shadow"]} text-3xl font-medium text-white font-monserrat`}>Entrance Fees</h1>     
             </section>
-            {Object.keys(park.entranceFees) === 0 ? (
+            {Object.keys(park.entranceFees) != 0 ? (
                 <table className="w-3/4 text-sm text-gray-400">
                 <thead className="text-xs text-gray-400 uppercase border-separate rounded-lg bg-navbar-blue">
                     <tr>
@@ -55,7 +55,7 @@ export default function FeesTable({ park }) {
                 </tbody>
             </table>
             ) : (
-                <h1>No fee for entrance</h1>
+                <h1 className={` ${styles["text-shadow"]} mb-2 ml-4 text-xl font-light leading-7 text-center text-off-white font-monserrat`}>No fee for entrance</h1>
             )}
              {Object.keys(park.entranceFees).length > numResults && (
           <button
@@ -65,7 +65,7 @@ export default function FeesTable({ park }) {
             Show More
           </button>
         )}
-        {Object.keys(park.entranceFees).length <= numResults  && (
+        {Object.keys(park.entranceFees).length <= numResults  &&  park.entranceFees != 0 && (
           <button
             className="px-6 py-2 mt-4 mb-4 text-sm font-medium text-gray-400 bg-gray-800 border border-gray-600 rounded-lg hover:text-white hover:bg-gray-700"
             onClick={handleShowLess}
