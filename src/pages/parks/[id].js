@@ -9,7 +9,7 @@ import styles from "../../styles/parkdetails.module.css";
 import MapLocator from "../../components/MapLocator";
 import Directions from "../../components/Directions";
 import Activities from "../../components/Activities";
-import Skeleton from "../../components/Skeleton";
+import ParkSkeleton from "../../components/ParkSkeleton";
 import BASE_URL from "../../../utils/baseUrl";
 import FeesTable from "../../components/FeesTable";
 import WeatherInfo from "../../components/WeatherInfo";
@@ -28,11 +28,11 @@ export default function ParkDetails({ park }) {
       }
   }, []);
 
-  useEffect(() => {
-    if (park) {
-      setLoading(false);
-    }
-  });
+  // useEffect(() => {
+  //   if (park) {
+  //     setLoading(false);
+  //   }
+  // });
 
 
 
@@ -46,11 +46,14 @@ export default function ParkDetails({ park }) {
     <>
       <Header />
       <Navbar />
-      {loading ? (
-        <Skeleton />
-      ) : (
         <div className="flex flex-col h-full">
-          <h1 className={` ${styles["text-shadow"]} pl-4 pr-4 mt-10 text-3xl font-bold tracking-tighter text-center text-white font-monserrat`}>
+          {loading ? (
+             <div className="flex flex-col items-center h-screen">
+             <ParkSkeleton />
+            </div>
+          ) : (
+            <>
+             <h1 className={` ${styles["text-shadow"]} pl-4 pr-4 mt-10 text-3xl font-bold tracking-tighter text-center text-white font-monserrat`}>
             {park.fullName}
           </h1>
           <div className="flex justify-center w-full mb-6">
@@ -81,12 +84,13 @@ export default function ParkDetails({ park }) {
           <div className="flex justify-center">
             <MapLocator center={center} />
           </div>
-        </div>
-      )}
-    </>
-  );
-}
+            </>
 
+      )};
+</div>
+</>
+  )
+                }
 export async function getServerSideProps(context) {
   const { id } = context.query;
   const res = await axios.get(

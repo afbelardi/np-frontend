@@ -55,7 +55,7 @@ export default function FeesTable({ park }) {
                 </tbody>
             </table>
             ) : (
-                <h1 className={` ${styles["text-shadow"]} mb-2 ml-4 text-xl font-light leading-7 text-center text-off-white font-monserrat`}>No fee for entrance</h1>
+                <h1 className={` ${styles["text-shadow"]} mb-2  text-xl font-light leading-7 text-center text-off-white font-monserrat`}>No fee for entrance</h1>
             )}
              {Object.keys(park.entranceFees).length > numResults && (
           <button
