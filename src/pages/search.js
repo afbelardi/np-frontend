@@ -66,7 +66,16 @@ export default function Search() {
         `${BASE_URL}/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
-      setParks(data.data);
+
+      //Fisher-Yates shuffle algorithm for randomizing results
+
+      const shuffledParks = data.data.slice();
+      for (let i = shuffledParks.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledParks[i], shuffledParks[j]] = [shuffledParks[j], shuffledParks[i]];
+      }
+
+      setParks(shuffledParks);
       setLoading(false);
     } catch (error) {
       console.error(error);
