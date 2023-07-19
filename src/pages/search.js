@@ -132,9 +132,9 @@ export default function Search() {
             </button>
           </div>
         </form>
-        <label for="countries" class="block mb-2 text-sm font-medium text-white">Search by Activity</label>
-          <select id="countries" class=" border   text-sm rounded-lg  block w-3/4 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-          <option selected>Choose a country</option>
+        <label for="countries" className="block mb-2 text-sm font-medium text-white">Search by Activity</label>
+          <select id="countries" className=" border   text-sm rounded-lg  block w-3/4 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+          <option>Choose a country</option>
           <option value="US">United States</option>
           <option value="CA">Canada</option>
           <option value="FR">France</option>
