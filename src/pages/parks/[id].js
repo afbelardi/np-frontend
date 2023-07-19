@@ -28,11 +28,11 @@ export default function ParkDetails({ park }) {
       }
   }, []);
 
-  // useEffect(() => {
-  //   if (park) {
-  //     setLoading(false);
-  //   }
-  // });
+  useEffect(() => {
+    if (park) {
+      setLoading(false);
+    }
+  });
 
 
 
@@ -46,7 +46,7 @@ export default function ParkDetails({ park }) {
     <>
       <Header />
       <Navbar />
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-screen">
           {loading ? (
              <div className="flex flex-col items-center h-screen">
              <ParkSkeleton />
