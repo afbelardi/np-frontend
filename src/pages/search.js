@@ -10,6 +10,7 @@ import  Card  from "../components/Card";
 import  Skeleton  from "../components/Skeleton";
 import BASE_URL from "../../utils/baseUrl";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { activities } from "../../utils/activities";
 
 
 
@@ -67,12 +68,11 @@ export default function Search() {
   const handleActivitySubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log('Selected Option:', selectedActivity);
-    // try {
+    try {
       
-    // } catch (error) {
+    } catch (error) {
       
-    // }
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -138,15 +138,17 @@ export default function Search() {
       <div className="flex flex-col items-center justify-center mb-10">
         <label htmlFor="activities" className={`${styles2["text-shadow"]} pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-semibold text-white font-monserrat`}>Search by Activity</label>
         <div className="flex items-center justify-center w-full gap-2">
-            <select id="countries" className=" border text-sm rounded-lg h-10  block w-1/2 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+            <select id="countries" onChange={handleActivity} className=" border text-sm rounded-lg h-10  block w-1/2 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
               <option>Choose an activity</option>
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
-              <option value="FR">France</option>
-              <option value="DE">Germany</option>
+                {activities.map(activity => {
+                  return (
+                    <option value={activity.name}>{activity.name}</option>
+                  )
+                })}
             </select>
             <button
-              type="submit"
+           
+              onClick={handleActivitySubmit}
               className="py-2.5 w-1/4 px-5  text-sm font-medium  rounded-lg border bg-navbar-blue text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
             >
               Submit

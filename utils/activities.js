@@ -1,4 +1,4 @@
-const activities = [
+export const activities = [
     {
         "name": "Arts and Culture"
     },
@@ -121,3 +121,4 @@ const activities = [
     }
 
 ]
+
