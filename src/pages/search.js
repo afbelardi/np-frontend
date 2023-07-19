@@ -116,7 +116,7 @@ export default function Search() {
         <h1 className={`${styles2["text-shadow"]} pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-semibold text-white font-monserrat`}>
           Search By State
         </h1>
-        <form onSubmit={handleSubmit} className="flex flex-col items-center">
+        <form onSubmit={handleSubmit} className="flex flex-col items-center mb-6">
           <div className={styles.inputContainer}>
             <input
               placeholder="Washington"
@@ -126,21 +126,33 @@ export default function Search() {
             <HiOutlineMagnifyingGlass className={styles.icon}/>
             <button
               type="submit"
-              className="py-2.5 w-1/2 px-5 mt-4 text-sm font-medium  rounded-lg border bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
+              className="py-2.5 w-1/2 px-5 mt-4 text-sm font-medium  rounded-lg border bg-navbar-blue text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
             >
               Submit
             </button>
           </div>
         </form>
-        <label for="countries" className="block mb-2 text-sm font-medium text-white">Search by Activity</label>
-          <select id="countries" className=" border   text-sm rounded-lg  block w-3/4 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-          <option>Choose a country</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="FR">France</option>
-          <option value="DE">Germany</option>
-        </select>
+        <h1 className="text-2xl font-bold text-white font-monserrat">OR</h1>
+        
       </div>
+      <div className="flex flex-col items-center justify-center mb-10">
+        <label htmlFor="activities" className={`${styles2["text-shadow"]} pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-semibold text-white font-monserrat`}>Search by Activity</label>
+        <div className="flex items-center justify-center w-full gap-2">
+            <select id="countries" className=" border text-sm rounded-lg h-10  block w-1/2 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+              <option>Choose an activity</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="FR">France</option>
+              <option value="DE">Germany</option>
+            </select>
+            <button
+              type="submit"
+              className="py-2.5 w-1/4 px-5  text-sm font-medium  rounded-lg border bg-navbar-blue text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
       <div className="flex flex-col items-center lg:grid lg:grid-cols-3 lg:gap-4">
         {loading ? (
           <>
