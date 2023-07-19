@@ -58,6 +58,23 @@ export default function Search() {
     })();
   }, []);
 
+  const [selectedActivity, setSelectedActivity] = useState('');
+
+  const handleActivity = (e) => {
+    setSelectedActivity(e.target.value)
+  }
+
+  const handleActivitySubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    console.log('Selected Option:', selectedActivity);
+    // try {
+      
+    // } catch (error) {
+      
+    // }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -66,6 +83,7 @@ export default function Search() {
         `${BASE_URL}/api/nationalpark/apikey/${inputRef.current.value}`
       );
       const data = response.data;
+      
 
       //Fisher-Yates shuffle algorithm for randomizing results
 
@@ -94,7 +112,7 @@ export default function Search() {
     <>
       <Header />
       <Navbar />
-      <div className="flex flex-col items-center h-56 mt-16 text-center">
+      <div className="flex flex-col items-center h-56 mt-10 text-center">
         <h1 className={`${styles2["text-shadow"]} pl-4 pr-4 tracking-[0.5px] mb-4 text-2xl font-semibold text-white font-monserrat`}>
           Search By State
         </h1>
@@ -114,6 +132,14 @@ export default function Search() {
             </button>
           </div>
         </form>
+        <label for="countries" class="block mb-2 text-sm font-medium text-white">Search by Activity</label>
+          <select id="countries" class=" border   text-sm rounded-lg  block w-3/4 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+          <option selected>Choose a country</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </select>
       </div>
       <div className="flex flex-col items-center lg:grid lg:grid-cols-3 lg:gap-4">
         {loading ? (

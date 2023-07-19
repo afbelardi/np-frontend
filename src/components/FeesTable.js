@@ -72,11 +72,8 @@ export default function FeesTable({ park }) {
           >
             Show Less
           </button>
-        )}
-            
-           
+        )}           
         </div>
-        
     </>
   )
 }
