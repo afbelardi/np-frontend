@@ -140,9 +140,9 @@ export default function Search() {
         <div className="flex items-center justify-center w-full gap-2">
             <select id="countries" onChange={handleActivity} className=" border text-sm rounded-lg h-10  block w-1/2 p-2.5 bg-navbar-blue border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
               <option>Choose an activity</option>
-                {activities.map(activity => {
+                {activities.map((activity, i) => {
                   return (
-                    <option value={activity.name}>{activity.name}</option>
+                    <option key={i} value={activity.name}>{activity.name} testing</option>
                   )
                 })}
             </select>
