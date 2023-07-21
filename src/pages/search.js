@@ -142,7 +142,7 @@ export default function Search() {
               <option>Choose an activity</option>
                 {activities.map((activity, i) => {
                   return (
-                    <option key={i} value={activity.name}>{activity.name} testing</option>
+                    <option key={i} value={activity.name}>{activity.name}</option>
                   )
                 })}
             </select>
